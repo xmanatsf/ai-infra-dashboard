@@ -1,0 +1,79 @@
+metric,segment,company,year,value,unit,kind,report,page,note
+DC capex,Cloud capex,Microsoft,2024,76,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Microsoft,2025,118,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Microsoft,2026,190,US$bn,guide,CAPEX-1Q26,1,1Q26 guide; was $186bn in Feb-26 tracker
+DC capex,Cloud capex,Google,2024,53,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Google,2025,91,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Google,2026,185,US$bn,guide,CAPEX-1Q26,1,1Q26 guide $175-185bn; was $180bn in Feb-26 tracker
+DC capex,Cloud capex,Meta,2024,37,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Meta,2025,72,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Meta,2026,135,US$bn,guide,CAPEX-1Q26,1,Guide $125-145bn; was $125bn in Feb-26 tracker
+DC capex,Cloud capex,Amazon,2024,62,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Amazon,2025,100,US$bn,actual,CAPEX-1Q26,1,
+DC capex,Cloud capex,Amazon,2026,165,US$bn,guide,CAPEX-1Q26,1,"4Q25 guide, unchanged (+56% YoY)"
+DC capex - total top 4,Cloud capex,Top-4 hyperscalers,2026,675,US$bn,estimate,CAPEX-1Q26,1,+78% YoY; Feb-26 vintage was $656bn
+AI capex,Cloud capex,Top-4 hyperscalers,2025,288,US$bn,estimate,CAPEX-1Q26,1,+95% YoY
+AI capex,Cloud capex,Top-4 hyperscalers,2026,575,US$bn,estimate,CAPEX-1Q26,1,+100% YoY; Feb-26 vintage was $546bn (+90%)
+Total DC spending,Buildout,All builders,2026,1200,US$bn,estimate,INFRA-I,1,Hyperscalers/internet/frontier ~$790bn + tier-2 ~$310bn + enterprise ~$100bn
+DC spending,Buildout,Oracle,2026,58,US$bn,estimate,INFRA-I,1,
+DC spending,Buildout,xAI,2026,45,US$bn,estimate,INFRA-I,1,
+DC spending,Buildout,Fluidstack,2026,60,US$bn,estimate,INFRA-I,1,
+DC spending,Buildout,CoreWeave,2026,34,US$bn,estimate,INFRA-I,1,
+DC spending,Buildout,Bytedance,2026,24,US$bn,estimate,INFRA-I,1,
+Consumption by frontier labs,Buildout,Frontier labs,2026,380,US$bn,estimate,INFRA-I,1,
+Financing - cash from operations,Financing,All builders,2026,900,US$bn,estimate,INFRA-II,1,
+Financing - debt,Financing,All builders,2026,250,US$bn,estimate,INFRA-II,1,"Mostly backstopped by hyperscalers, SoftBank, government agencies"
+Financing - equity,Financing,All builders,2026,50,US$bn,estimate,INFRA-II,1,"~20% xAI, rest tier-2 cloud"
+GPU revenues,GPU,Nvidia,2024,102,US$bn,actual,CAPEX-1Q26,1,
+GPU revenues,GPU,Nvidia,2025,157,US$bn,actual,CAPEX-1Q26,1,
+GPU revenues,GPU,Nvidia,2026,300,US$bn (floor),guide,CAPEX-1Q26,1,"'Jensen's guide'; Blackwell+Rubin only, ex networking"
+GPU revenues,GPU,AMD & others,2026,15,US$bn (floor),estimate,CAPEX-1Q26,1,OpenAI ramp in 2H26
+ASIC revenues,XPU/ASIC,Broadcom,2025,12,US$bn,actual,CAPEX-1Q26,1,
+ASIC revenues,XPU/ASIC,Broadcom,2026,48,US$bn (floor),guide,CAPEX-1Q26,1,'Hock's guide'; Feb-26 vintage was >$36bn
+ASIC revenues,XPU/ASIC,Other ASICs,2026,27,US$bn (floor),estimate,CAPEX-1Q26,1,"Trainium, Ascend, etc."
+XPU total,XPU/ASIC,Market,2026,390,US$bn (floor),estimate,CAPEX-1Q26,1,>+105% YoY
+XPU TAM (NSR),XPU/ASIC,Market,2027,600,US$bn,estimate,TSMC-XPU,1,Consensus $516bn - NSR 16% above
+XPU TAM (NSR),XPU/ASIC,Market,2028,835,US$bn,estimate,TSMC-XPU,1,Consensus $709bn - NSR 18% above
+XPU spend,XPU/ASIC,Market,2030,933,US$bn,estimate,CPU,4,35% CAGR 2025-30; in line with AMD's $1tn TAM
+XPU dies,XPU/ASIC,Market,2030,60,m units,estimate,CPU,4,25% unit CAGR; ASP per die $16k
+TSMC incremental XPU revenues 2026-28,Foundry,TSMC,2028,430,US$bn,estimate,TSMC-XPU,1,From $110bn 2026-27 capex; 18% above consensus
+Incremental wafer capacity 2026-27,Foundry,TSMC,2027,301,k wspm,estimate,TSMC-XPU,1,
+Revenue per wafer,Foundry,TSMC,2027,28,US$k,estimate,TSMC-XPU,1,Up from $23k in 2023-25 window
+Server CPU revenues (total),CPU,Market,2025,25,US$bn,actual,CPU,8,
+Server CPU revenues (total),CPU,Market,2026,60,US$bn,estimate,NVDA-CPU,1,"Intel & AMD $35bn, Nvidia $20bn, other Arm $5bn"
+Server CPU revenues (total),CPU,Market,2030,81,US$bn,estimate,CPU,8,26% CAGR 2025-30
+Server CPU TAM claim,CPU,AMD,2030,120,US$bn,guide,BIBLE-1Q26,13,Lisa Su: >35% CAGR; raised 2x vs Nov-25 CMD
+Server CPU TAM claim,CPU,Arm,2031,100,US$bn,guide,BIBLE-1Q26,13,"Rene Haas, FY31"
+Server CPU TAM claim (Vera),CPU,Nvidia,2030,200,US$bn,guide,BIBLE-1Q26,13,"Jensen Huang, 20-May-2026"
+Server CPU revenues,CPU,Nvidia,2026,20,US$bn,guide,NVDA-CPU,1,>33% market share in year one; 5-7m units at $3-4k ASP
+Server CPU revenues,CPU,Intel,2030,24,US$bn,estimate,CPU,9,14% CAGR 2025-30
+Server CPU revenues,CPU,AMD,2030,22,US$bn,estimate,CPU,9,19% CAGR; AMD's own target: $40bn (40% of $100bn TAM)
+Server CPU revenues,CPU,Arm,2030,15,US$bn,estimate,CPU,9,$13-17bn; 1P CPUs $10-15bn + royalties $2-2.5bn; EPS $7-9 by 2031
+AI CPU share,CPU,Arm,2030,55,%,estimate,CPU,5,From 40% in 2025
+AI server CPU units,CPU,Market,2030,30,m units,estimate,CPU,4,43% CAGR 2025-30
+Traditional server CPU units,CPU,Market,2030,17,m units,estimate,CPU,2,"Recovery to 2020 peak; cloud 12m, enterprise 5m"
+x86 server CPU share,CPU,AMD,2026,46,%,actual,BIBLE-1Q26,21,"1Q26, +2pts QoQ; expected up again 2Q26"
+DC GPU market share,GPU,AMD,2026,4,%,actual,AMD-1Q26,3,"1Q26, down 1pt QoQ on China; >10% expected by 2030"
+Revenue,Company model,AMD,2026,49.5,US$bn,estimate,AMD-1Q26,9,
+Revenue,Company model,AMD,2030,155.7,US$bn,estimate,AMD-1Q26,9,EPS $29.21; TP $530 = 29x 2030 EPS discounted back
+DC GPU revenue,Company model,AMD,2030,90.1,US$bn,estimate,AMD-1Q26,9,>10% GPU share
+Hyperscaler internal revenues,ROI,Hyperscalers & internet,2030,2900,US$bn,estimate,INFRA-IV,1,11% CAGR from $1.9tn in 2026
+Hyperscaler depreciation,ROI,Hyperscalers & internet,2030,410,US$bn,estimate,INFRA-IV,1,35% CAGR - absorbed if cash costs grow 3pts slower than revenues
+Incremental cloud revenues required,ROI,Cloud market,2027,190,US$bn,estimate,INFRA-III,1,To justify $710bn 2026 cloud capex
+Compute spend,ROI,OpenAI,2027,91,US$bn,estimate,INFRA-III,1,From $45bn in 2026
+Compute spend,ROI,Anthropic,2027,55,US$bn,estimate,INFRA-III,1,From $25bn in 2026
+Traditional cloud gross cash return,ROI,Top-3 CSPs,2025,50,%,estimate,ROIC,3,On gross operating assets; 60% GM / 30% EBIT margin business
+AI cloud gross cash return,ROI,AI cloud,2026,35,%,estimate,ROIC,7,45% average gross margin on 8-GPU Blackwell server
+Oracle-OpenAI contract IRR,ROI,Oracle,2032,12,%,estimate,ROIC,5,"4.5GW, ~$300bn revenues 2H27-1H32, 30% GM; 20% IRR over 10y chip life"
+Azure AI gross margin,ROI,Microsoft,2026,30,% (25-30),estimate,ROIC,6,"OpenAI <20%, others 30-40%; path to 40-50%"
+AI server cost per GW,ROI,Industry,2026,36,US$bn/GW,estimate,ROIC,5,Ex-building
+Public cloud revenue growth,Cloud revenue,Market,2026,41,% YoY,actual,BIBLE-1Q26,5,"1Q26: AWS +28%, GCP +63%, Azure +40%, OCI +85%"
+Hyperscale capex growth,Cloud capex,Top-8,2027,21,% YoY implied,estimate,BIBLE-1Q26,18,Expectations revised +19% in one season; NSR sees room for more
+DC semi revenue growth,Semis,Market,2026,83,% YoY implied,estimate,BIBLE-1Q26,19,2027: +48% implied
+HBM revenue growth,Memory/HBM,Samsung,2026,200,% YoY (>3x),guide,BIBLE-1Q26,14,HBM4 capacity fully booked and sold out
+AI networking revenue,Networking,Nvidia,2026,15,US$bn/quarter,actual,BIBLE-1Q26,16,~3x YoY; Spectrum-X > all Ethernet peers combined
+AI revenue target,Networking,Arista,2026,3.5,US$bn,guide,BIBLE-1Q26,16,>2x YoY; supply-constrained next couple of years
+Hyperscale AI orders,Networking,Cisco,2026,9,US$bn (FY26),guide,BIBLE-1Q26,16,4.5x FY25; >=$6bn revenue in FY27
+Interconnect revenue growth,Optics,Marvell,2027,70,% YoY (FY27),guide,BIBLE-1Q26,18,Raised from 50%
+ASIC deployment,XPU/ASIC,Broadcom,2027,10,GW,guide,BIBLE-1Q26,12,Plus 20GW for OpenAI & Anthropic through 2028 (AI XPV platform)
+AI DC spending,Buildout,Industry,2030,3500,US$bn ($3-4tn),guide,BIBLE-1Q26,12,"Nvidia guidance, reiterated May-2026"

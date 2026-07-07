@@ -1,0 +1,13 @@
+vendor,year,revenue_usd_bn
+Intel,2015,15
+Intel,2020,22
+Intel,2025,12
+Intel,2030,24
+AMD,2015,0
+AMD,2020,1
+AMD,2025,9
+AMD,2030,22
+Arm,2015,0
+Arm,2020,0
+Arm,2025,4
+Arm,2030,36
