@@ -31,6 +31,7 @@ Twenty notes across nine months disagree with each other, so the dashboard resol
 - **Superseded figures are retained as revision markers,** not deleted. The *What changed, vintage by vintage* table on the Conclusions tab records the February → April → June → September path for the six figures that moved most (2030 capex, 2030 XPU spend, 2026 hyperscaler capex, total DC spending, installed capacity, consensus 2027 capex).
 - **Ratings are date-stamped.** A company card refreshed by the September notes shows the current rating and target price, with the prior one beneath it.
 - **Two analyses are never mixed.** The 9 September funding work ($13.6tn capex, $2.5tn to finance) is superseded by the 18 September update ($16.5tn, $3.7tn); only the latter is used.
+- **Two series are retained but not rendered,** listed in `meta.supersededSeries`: `hyperscalerPnl` (the April group model, replaced outright by `hyperscalerModel`) and `replatforming` (1Q26, replaced by `replatforming2Q26`). Neither is a revision of a figure shown elsewhere, so neither appears on the ladder; both stay in the file for provenance. Everything else in `series` reaches the page.
 
 ## Project structure
 

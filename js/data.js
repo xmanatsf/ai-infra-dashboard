@@ -13,7 +13,12 @@ window.NSR = {
    "NSR denotes New Street Research house estimates; consensus denotes Visible Alpha / FactSet post-event aggregates. Where the two differ materially, both are shown.",
    "Where a later note supersedes an earlier one the later vintage is used, and the earlier appears only as a revision marker. The 9 September funding analysis ($13.6tn capex, $2.5tn to finance) is superseded by the 18 September update ($16.5tn, $3.7tn) and is not mixed with it.",
    "Top-8 hyperscalers: Google, Amazon, Microsoft, Meta, Oracle, Baidu, Alibaba, Tencent - quarterly capex excludes Baidu and Tencent. Top-5 public neoclouds: CoreWeave, Nebius, Iren, Whitefiber, SharonAI. Datacentre semis: Intel DCAI, Nvidia Datacenter, AMD Datacenter, Marvell Datacenter, MediaTek AI ASICs, Broadcom AI compute offload."
-  ]
+  ],
+  "supersededSeries": [
+   "hyperscalerPnl",
+   "replatforming"
+  ],
+  "supersededNote": "hyperscalerPnl (the April group model) is replaced by hyperscalerModel on the September numbers; replatforming (1Q26) is replaced by replatforming2Q26. Both are retained in this file for provenance but are not rendered, since neither is a revision of a figure shown elsewhere."
  },
  "reports": [
   {
@@ -131,7 +136,7 @@ window.NSR = {
   {
    "id": "FIN-II",
    "date": "2026-09-08",
-   "title": "Financing the AI buildout (II): capital intensity and FCF margin",
+   "title": "Financing the AI buildout (II): capital intensity & FCF margin",
    "file": "20260908-INDUSTRY-Financing-the-AI-buildout-II.pdf",
    "theme": "Financing"
   },
@@ -145,14 +150,14 @@ window.NSR = {
   {
    "id": "CAPEX-4TN",
    "date": "2026-09-18",
-   "title": "Here we are - $4tn AI capex in 2030?",
+   "title": "Here we are — $4tn AI capex in 2030?",
    "file": "20260918-INDUSTRY-Here-we-are-4tn-AI-capex-in-2030.pdf",
    "theme": "Long-range capex"
   },
   {
    "id": "BIBLE-2Q26",
    "date": "2026-09-18",
-   "title": "Quarterly Tech Bible 2Q26 - Hyperscale and Cloud",
+   "title": "Quarterly Tech Bible 2Q26 — Hyperscale & Cloud",
    "file": "20260918-INDUSTRY-Quarterly-Tech-Bible-2Q26.pdf",
    "theme": "Quarterly synthesis"
   }
@@ -1621,7 +1626,7 @@ window.NSR = {
     "sources": "FIN-III"
    },
    {
-    "title": "Negative free cash flow is arithmetic, not distress",
+    "title": "Negative free cash flow is what the arithmetic requires",
     "text": "Capital intensity scales at roughly 2.1 times the revenue growth rate and crosses the 80% EBITDA margin at about 38% growth. Above that line the industry funds itself externally by construction. Hyperscaler free cash flow troughs at minus $486bn in 2028, burns about $700bn cumulatively, and turns positive in 2030.",
     "sources": "FIN-II, FIN-III"
    },
@@ -2885,11 +2890,11 @@ window.NSR = {
     },
     {
      "title": "Demand exceeds supply everywhere, and will keep doing so",
-     "text": "Nvidia expects roughly 70% revenue growth in FY28 while unconstrained demand growth exceeds 100%. Memory, optics, substrates and advanced packaging are all short. The gating variable on revenue is capacity, not customers.",
+     "text": "Nvidia expects roughly 70% revenue growth in FY28 while unconstrained demand growth exceeds 100%. Memory, optics, substrates and advanced packaging are all short. Revenue is gated by how quickly capacity can be added.",
      "source": "BIBLE-2Q26"
     },
     {
-     "title": "Financing is a large problem, not a hard one",
+     "title": "Financing is a large problem, and a tractable one",
      "text": "Of $16.5tn of capex to 2030, roughly 77% is covered by the operating cash flow of hyperscalers, tier-2 clouds and neoclouds plus direct enterprise and government spend. The residual $3.7tn sits mostly with neoclouds, backstopped by hyperscaler guarantees and vendor-supported asset-backed debt.",
      "source": "FIN-III"
     },
@@ -2900,7 +2905,7 @@ window.NSR = {
     },
     {
      "title": "Which means negative free cash flow, by design",
-     "text": "Above roughly 35% growth, capital intensity exceeds the EBITDA margin and the industry burns cash. Hyperscaler free cash flow troughs near minus $486bn in 2028 and turns positive only in 2030, with about $700bn of cumulative burn. That is a feature of fast growth, not evidence of a bad business.",
+     "text": "Above roughly 35% growth, capital intensity exceeds the EBITDA margin and the industry burns cash. Hyperscaler free cash flow troughs near minus $486bn in 2028 and turns positive only in 2030, with about $700bn of cumulative burn. That is what growth at this rate costs while it lasts.",
      "source": "FIN-II"
     }
    ]
@@ -2958,6 +2963,38 @@ window.NSR = {
     }
    ],
    "source": "CAPEX-4TN, FIN-III, CAPEX-GAP"
+  },
+  "financingTiles": {
+   "note": "Headline figures for the funding question.",
+   "tiles": [
+    {
+     "label": "Cumulative capex ’26–’30",
+     "value": "$16.5tn",
+     "sub": "Total datacentre infrastructure"
+    },
+    {
+     "label": "Funded internally",
+     "value": "77%",
+     "sub": "Operating cash flow plus direct enterprise capex"
+    },
+    {
+     "label": "To be financed",
+     "value": "$3.7tn",
+     "sub": "$3.3tn of it by tier-2 and neoclouds",
+     "accent": true
+    },
+    {
+     "label": "Hyperscaler FCF trough",
+     "value": "−$486bn",
+     "sub": "In 2028; positive again in 2030"
+    },
+    {
+     "label": "2027 EBITDA, key players",
+     "value": "$1.8tn",
+     "sub": "Hyperscalers plus Nvidia and Broadcom"
+    }
+   ],
+   "source": "FIN-III"
   }
  },
  "datapoints": [

@@ -120,12 +120,37 @@
       <figcaption data-cite="capacityFrame"></figcaption>
     </div>
 
-    <figure class="card c12">
-      <h3>The long arc: XPU spending from a rounding error to $1.7tn</h3>
-      <p class="units">XPU spending, US$bn, 2015–2030</p>
-      <div class="plot" data-chart="xpuLongArc"></div>
-      <figcaption>The 2030 figure supersedes the $933bn carried in the June vintage. <span data-cite-inline="capexByComponent"></span></figcaption>
+    <figure class="card c7">
+      <h3>Capex by company, and the AI share of it</h3>
+      <p class="units">Datacentre capex, US$bn · 2026 is guidance or house estimate</p>
+      <div class="legend" data-legend="hcapex"></div>
+      <div class="plot" data-chart="hyperscalerCapex"></div>
+      <figcaption data-cite="hyperscalerCapex"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="hyperscalerCapex"></div></details>
     </figure>
+
+    <figure class="card c5">
+      <h3>Two years of doubling, then a step down</h3>
+      <p class="units">Top-8 hyperscale group capex growth, % year on year</p>
+      <div class="plot" data-chart="capexGrowth"></div>
+      <figcaption data-cite="capexGrowthHistory"></figcaption>
+    </figure>
+
+    <figure class="card c7">
+      <h3>The long arc of XPU spending</h3>
+      <p class="units">XPU spend, US$bn · 2015–2030</p>
+      <div class="legend" data-legend="xpuarc"></div>
+      <div class="plot" data-chart="xpuLongArc"></div>
+      <figcaption>The 2030 figure shown here is the June vintage and is superseded by the $1,702bn on the current model; the die and pricing decomposition still stands. <span data-cite-inline="xpuLongTerm"></span></figcaption>
+      <details class="dv"><summary>Dies and price per die</summary><div class="tblwrap" data-table="xpuArc"></div></details>
+    </figure>
+
+    <div class="dtable c5">
+      <h3>How the 2026 numbers moved, company by company</h3>
+      <p class="units">February against April 2026 trackers, US$bn unless stated</p>
+      <div class="tblwrap" data-table="capexRevisions"></div>
+      <figcaption data-cite="capexRevisions"></figcaption>
+    </div>
   </div>
 
   <p class="note"><b>A note on the CPU lines.</b> Two CPU numbers appear in the source work and they are not the same thing: total server CPU spending reaches about $200bn in 2030, of which roughly $170bn is attributable to AI applications. The capex table above uses the AI-attributable figure; the compute tab uses total server CPU spending.</p>
@@ -186,6 +211,41 @@
       <figcaption data-cite="tier2Financing"></figcaption>
     </div>
   </div>
+
+  <div class="sechead"><h3>The 2026 slice, in more detail</h3><span class="units">Who spends, on what model, for whom</span></div>
+
+  <div class="grid">
+    <figure class="card c7">
+      <h3>Who is actually writing the cheques in 2026</h3>
+      <p class="units">2026 datacentre capex by builder, US$bn</p>
+      <div class="legend" data-legend="spend"></div>
+      <div class="plot" data-chart="whoSpends"></div>
+      <figcaption data-cite="buildout2026"></figcaption>
+    </figure>
+
+    <div class="dtable c5">
+      <h3>The same spending, by model and by consumer</h3>
+      <p class="units">2026 datacentre spending, US$bn</p>
+      <div class="tblwrap" data-table="buildoutSplit"></div>
+      <figcaption>Ownership model and end consumer are two different cuts of the same total. <span data-cite-inline="buildout2026"></span></figcaption>
+    </div>
+
+    <figure class="card c5">
+      <h3>How the 2026 build is funded</h3>
+      <p class="units">Sources of funding for 2026 datacentre capex, US$bn</p>
+      <div class="legend" data-legend="fin26"></div>
+      <div class="plot" data-chart="financing2026"></div>
+      <figcaption data-cite="financing2026"></figcaption>
+    </figure>
+
+    <figure class="card c7">
+      <h3>Who pays the incremental 2027 cloud bill</h3>
+      <p class="units">$190bn of incremental 2027 cloud revenue, US$bn · midpoints where ranges are given</p>
+      <div class="plot" data-chart="cloudPayback"></div>
+      <figcaption data-cite="cloudPayback"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="cloudPayback"></div></details>
+    </figure>
+  </div>
 </section>
 
 <!-- ===================== 04 UNIT ECONOMICS ===================== -->
@@ -245,6 +305,13 @@
       <div class="tblwrap" data-table="oracle"></div>
       <figcaption data-cite="oracleContract"></figcaption>
     </div>
+
+    <div class="dtable c12">
+      <h3>What AI actually earns inside a hyperscaler</h3>
+      <p class="units">Azure AI gross margins, estimated from incremental Intelligent Cloud gross profit</p>
+      <div class="tblwrap" data-table="azure"></div>
+      <figcaption data-cite="azureAiMargins"></figcaption>
+    </div>
   </div>
 
   <p class="note"><b>Reading the crossover.</b> The integrated model earns above 80% of revenue in EBITDA but requires more than $200 of capex for every $100 of incremental revenue. Capital intensity therefore scales at roughly 2.1 times the growth rate: it crosses the EBITDA margin at about 38% growth, and everything above that line is funded externally. The conclusion is not that growth is uneconomic, but that the AI value chain needs net financing until well after 2030.</p>
@@ -255,7 +322,7 @@
   <div class="lede">
     <div>
       <div class="kicker">Compute</div>
-      <h2>Two silicon markets now, not one.</h2>
+      <h2>A second silicon market has opened.</h2>
       <p>XPUs remain the centre of gravity, compounding at 53% to $1.7tn in 2030. But agentic workloads have opened a second market in CPUs, growing at 93% off a very low base and dragging 2030 server CPU TAM estimates from about $60bn a year ago to $200bn and above.</p>
       <p>Underneath both sits a single gate: TSMC allocation. Foundry capex converts to XPU revenue on a roughly two-year lag, which is what makes the supply chain's capacity plans the most reliable read on the demand curve.</p>
     </div>
@@ -326,6 +393,21 @@
       <div class="tblwrap" data-table="amdCpu"></div>
       <p class="say" data-say="amdCpuShare"></p>
       <figcaption data-cite="amdCpuShare"></figcaption>
+    </div>
+
+    <figure class="card c7">
+      <h3>AI overtakes traditional server shipments</h3>
+      <p class="units">Server CPU shipments, millions of units</p>
+      <div class="legend" data-legend="cpuunits"></div>
+      <div class="plot" data-chart="cpuUnits"></div>
+      <figcaption data-cite="cpuUnits"></figcaption>
+    </figure>
+
+    <div class="dtable c5">
+      <h3>Nvidia's $20bn CPU guide, unpacked</h3>
+      <p class="units">What the guide implies for units and pricing</p>
+      <div class="tblwrap" data-table="nvdaCpu"></div>
+      <figcaption data-cite="nvdaCpu2026"></figcaption>
     </div>
   </div>
 </section>
@@ -430,6 +512,12 @@
       <div class="tblwrap" data-table="replat"></div>
       <figcaption data-cite="replatforming2Q26"></figcaption>
     </div>
+  </div>
+
+  <div class="sechead"><h3>The quarter before</h3><span class="units">1Q26 momentum, for comparison</span></div>
+  <div class="dtable" style="margin-top:20px">
+    <div class="tblwrap" data-table="momentum"></div>
+    <figcaption data-cite="quarterMomentum"></figcaption>
   </div>
 
   <div class="sechead"><h3>In their own words</h3><span class="units">Selected management commentary, July–September 2026</span></div>

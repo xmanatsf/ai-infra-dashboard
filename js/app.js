@@ -6,7 +6,8 @@
   var D = window.NSR, S = D.series, C = window.Chart;
   var money = C.money, pct = C.pct, fmt = C.fmt, esc = C.esc, table = C.table;
 
-  /* Series colours are handed out in this fixed order and never recycled. */
+  /* Series take these colours in order, so a given line keeps its colour
+     wherever it appears. */
   var SLOT = ["var(--s1)", "var(--s2)", "var(--s3)", "var(--s4)", "var(--s5)", "var(--s6)"];
   var RAMP = ["var(--o1)", "var(--o2)", "var(--o3)"];
   var POS = "var(--pos)", NEG = "var(--neg)";
@@ -165,22 +166,102 @@
   };
 
   CH.xpuLongArc = function () {
-    var yrs = ["2015", "2020", "2025", "2030"];
-    var xpu = cap.components[0];
+    var X = S.xpuLongTerm;
+    return C.colStack({
+      x: X.years.map(String), w: 660, h: 280, totalLabels: true,
+      series: [{ name: "XPU spend", color: slot(0), v: X.spend }],
+      tFmt: money,
+      vFmt: money
+    });
+  };
+
+  CH.hyperscalerCapex = function () {
+    var K = S.hyperscalerCapex;
+    return C.colGroup({
+      x: K.years.map(String), w: 660, h: 320, barW: 28,
+      series: K.companies.map(function (c, i) { return { name: c.name, color: slot(i), v: c.values }; }),
+      yFmt: money, lFmt: money, tFmt: money
+    });
+  };
+
+  CH.capexGrowth = function () {
+    var K = S.capexGrowthHistory;
     return C.colSingle({
-      x: yrs, v: [0, 7, xpu.values[0], xpu.values[YR.length - 1]],
-      color: slot(0), w: 760, h: 260, barW: 70, labelAll: true,
-      name: "XPU spending", lFmt: money, tFmt: money
+      x: K.years.map(String), v: K.growth, color: slot(0), est: 4,
+      w: 520, h: 280, barW: 46, labelAll: true, name: "Group capex growth",
+      lFmt: function (v) { return "+" + v + "%"; }, tFmt: function (v) { return "+" + v + "%"; },
+      yFmt: function (v) { return v + "%"; }
+    });
+  };
+
+  /* The builder chart and its legend must agree on which colour belongs to
+     which group, so both read the ordering from here. */
+  function spendGroups() {
+    var top = S.buildout2026.whoSpends.slice()
+      .sort(function (a, b) { return b.value - a.value; }).slice(0, 12);
+    var groups = [];
+    top.forEach(function (r) { if (groups.indexOf(r.group) < 0) groups.push(r.group); });
+    return { top: top, groups: groups };
+  }
+
+  CH.whoSpends = function () {
+    var G = spendGroups(), top = G.top, groups = G.groups;
+    return C.barH({
+      rows: top.map(function (r) {
+        return { name: r.name, sub: r.group, v: r.value, color: slot(groups.indexOf(r.group)) };
+      }),
+      w: 460, rowH: 42, pad: { t: 10, r: 62, b: 26, l: 130 },
+      lFmt: money, tFmt: money, xFmt: money, vLabel: "2026 capex"
+    });
+  };
+
+  CH.financing2026 = function () {
+    var F = S.financing2026, total = F.items.reduce(function (a, i) { return a + i.value; }, 0);
+    return C.stackBarH({
+      w: 520, total: total, barH: 34, below: 44,
+      vFmt: function (v) { return "$" + v + "bn"; },
+      rows: [{ label: "2026 BUILD, $1.2TN", segs: F.items.map(function (g, i) {
+        return { name: g.name, v: g.value, short: g.name, color: slot(i) }; }) }]
+    });
+  };
+
+  CH.cloudPayback = function () {
+    var P = S.cloudPayback;
+    return C.barH({
+      rows: P.items.map(function (r, i) {
+        return { name: r.name, sub: r.detail, v: r.value, color: slot(0),
+                 tipExtra: C.tipRow("", "Basis", esc(r.detail)) };
+      }),
+      w: 430, rowH: 46, pad: { t: 10, r: 62, b: 26, l: 150 },
+      lFmt: money, tFmt: money, xFmt: money, vLabel: "2027 revenue"
+    });
+  };
+
+  CH.cpuUnits = function () {
+    var U = S.cpuUnits;
+    return C.colStack({
+      x: U.years.map(String), w: 620, h: 300, pctOf: true,
+      series: [
+        { name: "AI servers", color: slot(0), v: U.ai },
+        { name: "Traditional — cloud", color: slot(1), v: U.traditionalCloud },
+        { name: "Traditional — enterprise", color: slot(2), v: U.traditionalEnterprise }
+      ],
+      vFmt: function (v) { return v.toFixed(1) + "m"; },
+      tFmt: function (v) { return v.toFixed(0) + "m units"; },
+      yFmt: function (v) { return v + "m"; }
     });
   };
 
   CH.usesSources = function () {
     var U = S.usesSources, total = 16.4;
+    /* The uses row is one quantity split three ways, so it steps down a single
+       hue; the sources row is five different things and takes the series set. */
+    var USES_RAMP = [RAMP[2], RAMP[1], RAMP[0]];
     return C.stackBarH({
       w: 900, total: total, vFmt: money1,
       rows: [
         { label: "USES — WHO BUILDS", note: "$16.5tn of capex",
-          segs: U.uses.map(function (u, i) { return { name: u.name, v: u.value, short: u.short, color: RAMP[1] === undefined ? slot(i) : ["var(--o3)", "var(--o2)", "var(--o1)"][i] }; }) },
+          segs: U.uses.map(function (u, i) { return { name: u.name, v: u.value, short: u.short, color: USES_RAMP[i] }; }) },
         { label: "SOURCES — WHERE THE MONEY COMES FROM", note: "the identical total",
           segs: U.sources.map(function (u, i) { return { name: u.name, v: u.value, short: u.short, color: slot(i) }; }),
           brackets: [U.bracket] }
@@ -574,6 +655,73 @@
       }) });
   };
 
+  TB.xpuArc = function () {
+    var X = S.xpuLongTerm;
+    return table({ head: ["Metric"].concat(X.years.map(String)), rows: [
+      { em: true, cells: ["XPU spend, US$bn"].concat(X.spend.map(function (v) { return money(v); })) },
+      { cells: ["Dies, millions"].concat(X.dies.map(function (v) { return v + "m"; })) },
+      { cells: ["Price per die, US$k"].concat(X.aspPerDie.map(function (v) { return "$" + v + "k"; })) }
+    ] });
+  };
+
+  TB.hyperscalerCapex = function () {
+    var K = S.hyperscalerCapex, yrs = K.years.map(String);
+    var rows = K.companies.map(function (c) {
+      return { em: true, cells: [c.name].concat(c.values.map(function (v) { return money(v); })) };
+    });
+    rows.push({ cls: "total", em: true, cells: ["Group AI capex"].concat(K.aiVsNonAi.AI.map(function (v) { return money(v); })) });
+    rows.push({ cells: [grey("Group non-AI capex")].concat(K.aiVsNonAi["Non-AI"].map(function (v) { return grey(money(v)); })) });
+    return table({ head: ["US$bn"].concat(yrs), rows: rows });
+  };
+
+  TB.capexRevisions = function () {
+    return table({ head: ["Metric", "Feb 2026", "Apr 2026", "Change"],
+      rows: S.capexRevisions.rows.map(function (r) {
+        var pctUnit = /%/.test(r.unit);
+        var f = function (v) { return pctUnit ? v + "%" : money(v); };
+        var delta = r.apr - r.feb;
+        return { em: true, cells: [r.metric + '<span class="subnote">' + esc(r.unit) + "</span>", f(r.feb), f(r.apr),
+          delta === 0 ? grey("unchanged") : (delta > 0 ? "+" : "−") + f(Math.abs(delta)).replace("$", "$")] };
+      }) });
+  };
+
+  TB.buildoutSplit = function () {
+    var B = S.buildout2026, rows = [];
+    B.model.forEach(function (m) { rows.push({ cells: ["By model — " + m.name, money(m.value)] }); });
+    rows.push({ cls: "total", em: true, cells: ["Total", money(B.model.reduce(function (a, m) { return a + m.value; }, 0))] });
+    B.whoConsumes.forEach(function (m) { rows.push({ cells: ["By consumer — " + m.name, money(m.value)] }); });
+    rows.push({ cls: "total", em: true, cells: ["Total", money(B.whoConsumes.reduce(function (a, m) { return a + m.value; }, 0))] });
+    return table({ head: ["2026 datacentre spending", "US$bn"], rows: rows });
+  };
+
+  TB.cloudPayback = function () {
+    return table({ head: ["Source of demand", "US$bn", "Basis"], prose: [2],
+      rows: S.cloudPayback.items.map(function (r) {
+        return { em: true, cells: [r.name, money(r.value), esc(r.detail)] };
+      }) });
+  };
+
+  TB.azure = function () {
+    return table({ head: ["Segment", "Gross margin", "Detail"], prose: [2],
+      rows: S.azureAiMargins.rows.map(function (r) {
+        return { em: true, cells: [r.segment, r.gm, esc(r.detail || "")] };
+      }) });
+  };
+
+  TB.nvdaCpu = function () {
+    return table({ head: ["Metric", "Value", "Comment"], prose: [2],
+      rows: S.nvdaCpu2026.rows.map(function (r) {
+        return { em: true, cells: [r.metric, r.value, esc(r.comment || "")] };
+      }) });
+  };
+
+  TB.momentum = function () {
+    return table({ head: ["Metric", "1Q26 reading", "Detail"], prose: [2],
+      rows: S.quarterMomentum.rows.map(function (r) {
+        return { em: true, cells: [r.metric, r.value, esc(r.detail)] };
+      }) });
+  };
+
   TB.tsmc = function () {
     return table({ head: ["Metric", "2023–25", "2026–27"],
       rows: S.tsmc.rows.map(function (r) { return [r.metric, r.c2023_25, r.c2026_27]; }) });
@@ -636,7 +784,13 @@
     xputam:   function () { return C.legend([{ name: "House (foundry-implied)", color: slot(0), kind: "line" }, { name: "Consensus", color: slot(1), kind: "line" }]); },
     cpu:      function () { return C.legend(S.serverCpuRevenue.vendors.map(function (v, i) { return { name: v.name, color: slot(i) }; })); },
     aicpu:    function () { return C.legend(S.aiCpuShare.vendors.map(function (v, i) { return { name: v.name, color: slot(i), kind: "line" }; })); },
-    amdmodel: function () { return C.legend(S.amdModel.segments.map(function (s, i) { return { name: s.name, color: slot(i) }; })); }
+    amdmodel: function () { return C.legend(S.amdModel.segments.map(function (s, i) { return { name: s.name, color: slot(i) }; })); },
+    hcapex:   function () { return C.legend(S.hyperscalerCapex.companies.map(function (c, i) { return { name: c.name, color: slot(i) }; })); },
+    xpuarc:   function () { return C.legend([{ name: "XPU spend", color: slot(0) }]); },
+    fin26:    function () { return C.legend(S.financing2026.items.map(function (i2, i) { return { name: i2.name, color: slot(i) }; })); },
+    spend:    function () { var g = spendGroups().groups;
+                return C.legend(g.map(function (n, i) { return { name: n, color: slot(i) }; })); },
+    cpuunits: function () { return C.legend([{ name: "AI servers", color: slot(0) }, { name: "Traditional — cloud", color: slot(1) }, { name: "Traditional — enterprise", color: slot(2) }]); }
   };
 
   /* =======================================================================
@@ -846,13 +1000,7 @@
   function boot() {
     renderChrome();
     tiles("#kpis", D.kpis);
-    tiles("#fin-tiles", [
-      { label: "Cumulative capex ’26–’30", value: "$16.5tn", sub: "Total datacentre infrastructure" },
-      { label: "Funded internally", value: "77%", sub: "Operating cash flow plus direct enterprise capex" },
-      { label: "To be financed", value: "$3.7tn", sub: "$3.3tn of it by tier-2 and neoclouds", accent: true },
-      { label: "Hyperscaler FCF trough", value: "−$486bn", sub: "In 2028; positive again in 2030" },
-      { label: "2027 EBITDA, key players", value: "$1.8tn", sub: "Hyperscalers plus Nvidia and Broadcom" }
-    ]);
+    tiles("#fin-tiles", S.financingTiles.tiles);
     tiles("#q-tiles", S.scorecard2Q26.tiles);
     renderLists();
     renderHeatmap();

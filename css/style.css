@@ -16,7 +16,7 @@
  --rule-strong:#c6c0b1;
  --grid:#e6e1d5;
 
- /* series colours, assigned in a fixed order and never recycled */
+ /* series colours, used in this order */
  --s1:#3a5f9e;
  --s2:#c4552f;
  --s3:#0f8d7d;
@@ -24,10 +24,10 @@
  --s5:#8c3f6a;
  --s6:#5a7d1e;
 
- /* one-hue ramp for ordered steps */
+ /* single hue, light to dark, for ordered steps */
  --o1:#98aed0; --o2:#6d8bbd; --o3:#3a5f9e;
 
- /* two poles and a neutral middle, for above/below comparisons */
+ /* above / below zero, with a neutral middle */
  --pos:#3a5f9e; --neg:#c4552f; --mid:#e6e1d5;
 
  --tip-bg:#141310; --tip-ink:#faf8f4;

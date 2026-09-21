@@ -2,12 +2,12 @@
    Every builder returns an SVG string; the caller inserts it and calls
    Chart.bindTips(root) once to wire the shared tooltip.
 
-   Conventions held throughout:
-   - values, labels and legends wear ink tokens, never the series colour;
-     the mark beside them carries the identity
-   - a 2px gap of surface separates adjacent fills
-   - data ends anchored to the baseline get a 4px round; the baseline end stays square
-   - series colours are handed in by the caller in a fixed order
+   House rules:
+   - numbers and labels are drawn in text colours; the mark next to them
+     carries the series colour
+   - a 2px gap of background separates neighbouring fills
+   - the free end of a bar is rounded 4px, the baseline end left square
+   - the caller passes the colours; nothing here picks or cycles them
 */
 (function (global) {
   "use strict";
