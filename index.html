@@ -1,267 +1,492 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Infrastructure Dashboard — NSR Synthesis</title>
-<meta name="description" content="Interactive synthesis of New Street Research AI infrastructure reports: capex, XPU/GPU/ASIC, CPU, memory, networking, foundry, ROI. 2025-2030.">
+<title>AI Infrastructure Dashboard — New Street Research synthesis</title>
+<meta name="description" content="Scale, financing, unit economics, compute, supply and company positioning across the AI infrastructure buildout, synthesised from 20 New Street Research notes, January–September 2026.">
 <link rel="stylesheet" href="css/style.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%233a5f9e'/><rect x='6' y='17' width='4' height='9' fill='%23faf8f4'/><rect x='12' y='12' width='4' height='14' fill='%23faf8f4'/><rect x='18' y='8' width='4' height='18' fill='%23faf8f4'/><rect x='24' y='5' width='3' height='21' fill='%23c4552f'/></svg>">
 </head>
 <body>
 
-<header class="site">
-  <button class="theme-toggle" id="themeToggle" title="Toggle light/dark">☀ / ☾</button>
-  <h1>AI Infrastructure Dashboard</h1>
-  <div class="sub">Cross-report synthesis of 13 New Street Research (NSR) publications, January–June 2026 — capex, XPU/GPU/ASIC, server CPUs, memory, networking, foundry, competitive positioning and ROI, 2015–2030.</div>
-  <div class="disclaimer">NSR estimates unless flagged as company guidance. Data extracted from licensed research — for internal analysis; do not redistribute.</div>
+<div id="tip" role="status" aria-live="polite"></div>
+
+<header class="mast">
+  <div class="wrap mast-in">
+    <div>
+      <div class="eyebrow">Global technology infrastructure · Research synthesis</div>
+      <h1>The AI infrastructure buildout</h1>
+      <p class="dek" id="mast-dek"></p>
+    </div>
+    <div class="mast-meta">
+      <div>Vintage <b id="mast-vintage"></b></div>
+      <div>Quarter <b id="mast-quarter"></b></div>
+      <div>Currency <b id="mast-currency"></b></div>
+      <button class="themebtn" id="themebtn" type="button">Dark mode</button>
+    </div>
+  </div>
 </header>
 
-<nav class="tabs"><div class="inner">
-  <button class="active" data-panel="p-overview">Overview</button>
-  <button data-panel="p-capex">Capex &amp; Buildout</button>
-  <button data-panel="p-xpu">XPU &amp; Foundry</button>
-  <button data-panel="p-cpu">Server CPUs</button>
-  <button data-panel="p-vendors">Vendors</button>
-  <button data-panel="p-tech">Technology &amp; Supply</button>
-  <button data-panel="p-roi">ROI &amp; Economics</button>
-  <button data-panel="p-insights">Key Insights</button>
-  <button data-panel="p-explorer">Data Explorer</button>
-</div></nav>
-
-<main>
-
-<!-- ============ OVERVIEW ============ -->
-<section class="panel active" id="p-overview">
-  <h2 class="section-title">The state of the AI buildout — June 2026</h2>
-  <p class="section-lede">Hyperscaler AI capex is doubling for the second consecutive year, every supply-chain layer is constrained, and expectations were still being revised <em>up</em> through the 1Q26 earnings season. Agentic AI opened a second compute market (CPUs) in the space of a single quarter.</p>
-  <div class="kpi-row" id="kpis"></div>
-  <div class="grid-2">
-    <div class="card">
-      <h3>Hyperscale capex growth by year</h3>
-      <div class="note">Top-8 group. 2026/27 are consensus-implied after +9%/+19% revisions during the 1Q26 season — NSR sees room for further upward revisions in 2027.</div>
-      <div class="chart-wrap" id="chart-capex-growth"></div>
-      <div class="source">Source: BIBLE-1Q26 p.18 (Quarterly Tech Bible 1Q26, 9-Jun-2026)</div>
-    </div>
-    <div class="card">
-      <h3>AI vs non-AI capex, top-4 hyperscalers</h3>
-      <div class="note">AI capex doubles again in 2026 (+100% YoY to $575bn) after +95% in 2025. Non-AI capex is flat-to-down.</div>
-      <div class="chart-wrap" id="chart-ai-nonai"></div>
-      <div class="source">Source: CAPEX-1Q26 p.1 (Hyperscaler capex tracker, 30-Apr-2026)</div>
+<nav class="tabsbar" aria-label="Sections">
+  <div class="wrap">
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" id="t-overview"  aria-controls="p-overview"  aria-selected="true"><span class="n">01</span>Overview</button>
+      <button class="tab" role="tab" id="t-scale"     aria-controls="p-scale"     aria-selected="false"><span class="n">02</span>Scale</button>
+      <button class="tab" role="tab" id="t-financing" aria-controls="p-financing" aria-selected="false"><span class="n">03</span>Financing</button>
+      <button class="tab" role="tab" id="t-unit"      aria-controls="p-unit"      aria-selected="false"><span class="n">04</span>Unit economics</button>
+      <button class="tab" role="tab" id="t-compute"   aria-controls="p-compute"   aria-selected="false"><span class="n">05</span>Compute</button>
+      <button class="tab" role="tab" id="t-supply"    aria-controls="p-supply"    aria-selected="false"><span class="n">06</span>Supply</button>
+      <button class="tab" role="tab" id="t-companies" aria-controls="p-companies" aria-selected="false"><span class="n">07</span>Companies</button>
+      <button class="tab" role="tab" id="t-quarter"   aria-controls="p-quarter"   aria-selected="false"><span class="n">08</span>2Q26 scorecard</button>
+      <button class="tab" role="tab" id="t-insights"  aria-controls="p-insights"  aria-selected="false"><span class="n">09</span>Conclusions</button>
+      <button class="tab" role="tab" id="t-explorer"  aria-controls="p-explorer"  aria-selected="false"><span class="n">10</span>Data</button>
     </div>
   </div>
-  <div class="card">
-    <h3>1Q26 momentum snapshot</h3>
-    <div class="note">What the quarter told us, per the Quarterly Bible.</div>
-    <div class="table-scroll"><table class="data"><thead><tr><th>Metric</th><th class="num">Reading</th><th>Detail</th></tr></thead><tbody id="momentum-body"></tbody></table></div>
-    <div class="source">Source: BIBLE-1Q26 p.3, p.5-6, p.18-19</div>
+</nav>
+
+<main class="wrap">
+
+<!-- ===================== 01 OVERVIEW ===================== -->
+<section class="panel" id="p-overview" role="tabpanel" aria-labelledby="t-overview">
+  <div class="lede" data-lede="overview"></div>
+  <div class="tiles" id="kpis"></div>
+
+  <div class="grid">
+    <figure class="card c5">
+      <h3>The forecast has been raised twice in three months</h3>
+      <p class="units">2030 AI infrastructure capex forecast, US$tn</p>
+      <div class="legend" data-legend="ladder"></div>
+      <div class="plot" data-chart="forecastLadder"></div>
+      <figcaption data-cite="forecastLadder"></figcaption>
+    </figure>
+
+    <figure class="card c7">
+      <h3>Every layer of the stack compounds, but the mix shifts</h3>
+      <p class="units">Annual AI infrastructure capex by component, US$bn</p>
+      <div class="legend" data-legend="capex"></div>
+      <div class="plot" data-chart="capexStack"></div>
+      <figcaption data-cite="capexByComponent"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="capex"></div></details>
+    </figure>
+  </div>
+
+  <div class="sechead"><h3>Five things that matter</h3><span class="units">The synthesis in five paragraphs</span></div>
+  <ol class="pts" id="five-things" style="margin-top:20px"></ol>
+
+  <p class="note" data-convention="0"></p>
+</section>
+
+<!-- ===================== 02 SCALE ===================== -->
+<section class="panel" id="p-scale" role="tabpanel" aria-labelledby="t-scale" hidden>
+  <div class="lede" data-lede="scale"></div>
+
+  <div class="grid">
+    <div class="dtable c12">
+      <h3>AI infrastructure capex by component</h3>
+      <p class="units">US$bn, calendar years · CAGR is 2025–2030</p>
+      <div class="tblwrap" data-table="capexFull"></div>
+      <figcaption data-cite="capexByComponent"></figcaption>
+    </div>
+
+    <figure class="card c6">
+      <h3>Compute silicon takes share; shells give it up</h3>
+      <p class="units">Share of annual AI infrastructure capex, % — 2025 against 2030</p>
+      <div class="legend" data-legend="shift"></div>
+      <div class="plot" data-chart="shareShift"></div>
+      <figcaption>Open markers are 2025, filled markers 2030; the connector shows the direction of travel. Only buildings and other equipment lose share. <span data-cite-inline="capexByComponent"></span></figcaption>
+    </figure>
+
+    <figure class="card c6">
+      <h3>Memory value content nearly triples in two years</h3>
+      <p class="units">Memory spending within AI infrastructure, US$bn</p>
+      <div class="legend" data-legend="mem"></div>
+      <div class="plot" data-chart="memStack"></div>
+      <figcaption data-cite="memoryValue"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="mem"></div></details>
+    </figure>
+
+    <figure class="card c7">
+      <h3>HBM doubles its claim on the XPU bill of materials</h3>
+      <p class="units">HBM spending as a share of total XPU spending, %</p>
+      <div class="plot" data-chart="hbmShare"></div>
+      <figcaption>Modelled HBM gross margins normalise from 81% in 2027 to 76% in 2030, so the share gain is volume- and content-driven. <span data-cite-inline="memoryValue"></span></figcaption>
+    </figure>
+
+    <div class="dtable c5">
+      <h3>The capacity and pricing frame</h3>
+      <p class="units">Reference figures used across the buildout model</p>
+      <div class="tblwrap" data-table="capacity"></div>
+      <figcaption data-cite="capacityFrame"></figcaption>
+    </div>
+
+    <figure class="card c12">
+      <h3>The long arc: XPU spending from a rounding error to $1.7tn</h3>
+      <p class="units">XPU spending, US$bn, 2015–2030</p>
+      <div class="plot" data-chart="xpuLongArc"></div>
+      <figcaption>The 2030 figure supersedes the $933bn carried in the June vintage. <span data-cite-inline="capexByComponent"></span></figcaption>
+    </figure>
+  </div>
+
+  <p class="note"><b>A note on the CPU lines.</b> Two CPU numbers appear in the source work and they are not the same thing: total server CPU spending reaches about $200bn in 2030, of which roughly $170bn is attributable to AI applications. The capex table above uses the AI-attributable figure; the compute tab uses total server CPU spending.</p>
+</section>
+
+<!-- ===================== 03 FINANCING ===================== -->
+<section class="panel" id="p-financing" role="tabpanel" aria-labelledby="t-financing" hidden>
+  <div class="lede" data-lede="financing"></div>
+  <div class="tiles" id="fin-tiles"></div>
+
+  <div class="grid">
+    <figure class="card c12">
+      <h3>The same $16.5tn, viewed as spending and as funding</h3>
+      <p class="units">Cumulative datacentre capex 2026–2030, US$tn</p>
+      <div class="legend" data-legend="uses"></div>
+      <div class="plot" data-chart="usesSources"></div>
+      <figcaption>The upper bar splits the spending by who builds; the lower bar splits the identical total by where the money comes from. The uplift line is the amount by which house estimates exceed consensus hyperscaler operating cash flow. <span data-cite-inline="usesSources"></span></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="uses"></div></details>
+    </figure>
+
+    <figure class="card c7">
+      <h3>Capex outruns operating cash flow for four years</h3>
+      <p class="units">Top-8 hyperscalers, US$bn</p>
+      <div class="legend" data-legend="fcf"></div>
+      <div class="plot" data-chart="fcfPath"></div>
+      <figcaption data-cite="hyperscalerModel"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="fcf"></div></details>
+    </figure>
+
+    <figure class="card c5">
+      <h3>AI is the whole of cloud growth</h3>
+      <p class="units">Hyperscaler cloud revenues, US$bn</p>
+      <div class="legend" data-legend="cloud"></div>
+      <div class="plot" data-chart="cloudSplit"></div>
+      <figcaption>Non-AI cloud stabilises at around 10% growth, below its historic trend; AI cloud compounds to $1.5tn. <span data-cite-inline="hyperscalerModel"></span></figcaption>
+    </figure>
+
+    <div class="dtable c12">
+      <h3>Hyperscaler group P&amp;L and cash flow</h3>
+      <p class="units">Top-8 hyperscalers, US$bn · the cumulative column is 2026–2030</p>
+      <div class="tblwrap" data-table="pl"></div>
+      <figcaption data-cite="hyperscalerModel"></figcaption>
+    </div>
+
+    <figure class="card c7">
+      <h3>The house models more capex, and a deeper trough, than the street</h3>
+      <p class="units">Hyperscaler capex and free cash flow, US$bn</p>
+      <div class="legend" data-legend="vs"></div>
+      <div class="plot" data-chart="nsrVsCons"></div>
+      <figcaption data-cite="nsrVsConsensus"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="vs"></div></details>
+    </figure>
+
+    <div class="dtable c5">
+      <h3>Tier-2 and neocloud financing structure</h3>
+      <p class="units">Cumulative 2026–2030, US$tn</p>
+      <div class="tblwrap" data-table="tier2"></div>
+      <figcaption data-cite="tier2Financing"></figcaption>
+    </div>
   </div>
 </section>
 
-<!-- ============ CAPEX ============ -->
-<section class="panel" id="p-capex">
-  <h2 class="section-title">Capex &amp; the $1.2tn buildout</h2>
-  <p class="section-lede">Who spends, who consumes, how it is financed — and how the estimates moved between the February and April trackers.</p>
-  <div class="card">
-    <h3>Hyperscaler DC capex by company</h3>
-    <div class="note">2026 values are company guidance (1Q26 earnings) — Microsoft $190bn, Google $185bn, Amazon $165bn, Meta $135bn. Total $675bn, +78% YoY.</div>
-    <div class="chart-wrap" id="chart-capex-company"></div>
-    <div class="source">Source: CAPEX-1Q26 p.1</div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <h3>The 2026 buildout: who spends → what model → who consumes</h3>
-      <div class="note">$1.2tn total. ~70% of infrastructure deployed in 2026 ultimately serves frontier labs and internet-internal workloads. Hover segments for company detail.</div>
-      <div id="chart-buildout"></div>
-      <div class="source">Source: INFRA-I p.1 (Grasping the AI Infra buildout I, 2-Mar-2026)</div>
+<!-- ===================== 04 UNIT ECONOMICS ===================== -->
+<section class="panel" id="p-unit" role="tabpanel" aria-labelledby="t-unit" hidden>
+  <div class="lede" data-lede="unit"></div>
+
+  <div class="grid">
+    <div class="dtable c7">
+      <h3>Three ways to monetise a gigawatt of compute</h3>
+      <p class="units">US$bn per gigawatt, steady state</p>
+      <div class="tblwrap" data-table="perGW"></div>
+      <figcaption data-cite="perGigawatt"></figcaption>
     </div>
-    <div class="card">
-      <h3>Financing &amp; largest builders</h3>
-      <div class="note">Debt finances only ~20% of the buildout, and most of it is backstopped by hyperscalers, SoftBank or government agencies — leverage capacity remains largely untapped.</div>
-      <div id="chart-financing"></div>
-      <div id="chart-spenders" style="margin-top:10px"></div>
-      <div class="source">Source: INFRA-II p.1; INFRA-I p.1</div>
+
+    <figure class="card c5">
+      <h3>Owning the asset stacks the margin</h3>
+      <p class="units">EBITDA margin and gross return on operating assets, %</p>
+      <div class="legend" data-legend="models"></div>
+      <div class="plot" data-chart="modelMargins"></div>
+      <figcaption data-cite="modelMargins"></figcaption>
+    </figure>
+
+    <figure class="card c5">
+      <h3>Where $100 of frontier AI revenue goes</h3>
+      <p class="units">Integrated frontier AI model, US$ per $100 of revenue</p>
+      <div class="legend" data-legend="hundred"></div>
+      <div class="plot" data-chart="hundred"></div>
+      <figcaption data-cite="revenueHundred"></figcaption>
+    </figure>
+
+    <figure class="card c7">
+      <h3>Above roughly 35% growth, the industry must burn cash</h3>
+      <p class="units">Capital intensity and free cash flow margin against revenue growth, both as % of revenue</p>
+      <div class="legend" data-legend="ci"></div>
+      <div class="plot" data-chart="capIntensity"></div>
+      <figcaption>Replacement capex is excluded, so this holds only for the early high-growth phase. At today's growth rates above 100%, capital intensity runs above 200% and the industry burns more free cash flow than it generates in revenue. <span data-cite-inline="capitalIntensity"></span></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="ci"></div></details>
+    </figure>
+
+    <div class="dtable c12">
+      <h3>AI compute contract pricing</h3>
+      <p class="units">Reported terms, 2Q26 earnings season</p>
+      <div class="tblwrap" data-table="pricing"></div>
+      <figcaption data-cite="contractPricing"></figcaption>
+    </div>
+
+    <div class="dtable c7">
+      <h3>Server-level economics: traditional against AI</h3>
+      <p class="units">A two-CPU x86 server against an eight-GPU Blackwell system</p>
+      <div class="tblwrap" data-table="cloudEconomics"></div>
+      <figcaption data-cite="cloudEconomics"></figcaption>
+    </div>
+
+    <div class="dtable c5">
+      <h3>A single large contract, end to end</h3>
+      <p class="units">Oracle–OpenAI 4.5GW contract, US$bn</p>
+      <div class="tblwrap" data-table="oracle"></div>
+      <figcaption data-cite="oracleContract"></figcaption>
     </div>
   </div>
-  <div class="card">
-    <h3>Estimate revisions: February vs April 2026 tracker</h3>
-    <div class="note">Two months of earnings moved 2026 total capex +$19bn and Broadcom's ASIC floor +$12bn. Expectations kept rising through the season.</div>
-    <div id="table-revisions"></div>
-    <div class="source">Source: CAPEX-4Q25 p.1 (6-Feb-2026) vs CAPEX-1Q26 p.1 (30-Apr-2026)</div>
-  </div>
+
+  <p class="note"><b>Reading the crossover.</b> The integrated model earns above 80% of revenue in EBITDA but requires more than $200 of capex for every $100 of incremental revenue. Capital intensity therefore scales at roughly 2.1 times the growth rate: it crosses the EBITDA margin at about 38% growth, and everything above that line is funded externally. The conclusion is not that growth is uneconomic, but that the AI value chain needs net financing until well after 2030.</p>
 </section>
 
-<!-- ============ XPU ============ -->
-<section class="panel" id="p-xpu">
-  <h2 class="section-title">XPU market &amp; foundry signal</h2>
-  <p class="section-lede">GPUs double, ASICs triple, and TSMC's own capex implies a 2027/28 XPU market 15–20% above consensus.</p>
-  <div class="grid-2">
-    <div class="card">
+<!-- ===================== 05 COMPUTE ===================== -->
+<section class="panel" id="p-compute" role="tabpanel" aria-labelledby="t-compute" hidden>
+  <div class="lede">
+    <div>
+      <div class="kicker">Compute</div>
+      <h2>Two silicon markets now, not one.</h2>
+      <p>XPUs remain the centre of gravity, compounding at 53% to $1.7tn in 2030. But agentic workloads have opened a second market in CPUs, growing at 93% off a very low base and dragging 2030 server CPU TAM estimates from about $60bn a year ago to $200bn and above.</p>
+      <p>Underneath both sits a single gate: TSMC allocation. Foundry capex converts to XPU revenue on a roughly two-year lag, which is what makes the supply chain's capacity plans the most reliable read on the demand curve.</p>
+    </div>
+    <div class="lede-side">
+      <p><b>Share, and the limits of share.</b> AMD's datacentre GPU share has stalled near 4% while its revenue has not, and its x86 server CPU share slipped a point to 44% in 2Q26 purely on supply. The house view still has AMD above 10% of XPUs and above 15% of GPUs by 2030 on the MI450 ramp.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <figure class="card c7">
       <h3>XPU revenues by vendor</h3>
-      <div class="note">2026 values are floors (">"). Nvidia keeps ~77% of XPU dollars; Broadcom quadruples to >$48bn; "Other ASICs" = Trainium, Ascend, etc.</div>
-      <div class="chart-wrap" id="chart-xpu-vendors"></div>
-      <div class="source">Source: CAPEX-1Q26 p.1</div>
-    </div>
-    <div class="card">
-      <h3>XPU TAM: NSR (TSMC-implied) vs consensus</h3>
-      <div class="note">TSMC's 2026-27 capex converts into $430bn of incremental XPU revenues by 2028 — putting 2027 at $600bn (cons. $516bn) and 2028 at $835bn (cons. $709bn).</div>
-      <div class="chart-wrap" id="chart-xpu-tam"></div>
-      <div class="source">Source: TSMC-XPU p.1 (9-Mar-2026)</div>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <h3>The long arc: XPU spend to $933bn by 2030</h3>
-      <div class="note">35% CAGR 2025-30 (25% die units, 7% die ASP as Rubin Ultra doubles dies per package). Consistent with AMD's $1tn TAM guide and Nvidia's $3-4tn AI DC spending frame.</div>
-      <div class="chart-wrap" id="chart-xpu-longterm"></div>
-      <div class="source">Source: CPU p.4 (Server CPUs: A brave new world!, 10-Apr-2026)</div>
-    </div>
-    <div class="card">
-      <h3>TSMC capex → XPU revenue conversion</h3>
-      <div class="note">The "following the money" framework: capex spent years n..n+2 produces incremental revenues by n+3. AI stays 13-14% of TSMC's XPU-driven revenue.</div>
-      <div id="table-tsmc"></div>
-      <div class="source">Source: TSMC-XPU p.1</div>
-    </div>
-  </div>
-</section>
+      <p class="units">US$bn · 2026 values are floors</p>
+      <div class="legend" data-legend="xpu"></div>
+      <div class="plot" data-chart="xpuMarket"></div>
+      <figcaption data-cite="xpuMarket"></figcaption>
+    </figure>
 
-<!-- ============ CPU ============ -->
-<section class="panel" id="p-cpu">
-  <h2 class="section-title">Server CPUs: a brave new world</h2>
-  <p class="section-lede">Agentic AI turned CPUs from a declining afterthought into the fastest-repriced market in the space — TAM claims escalated from $60bn (2026) to $100–200bn (2030) between February and May 2026.</p>
-  <div class="grid-2">
-    <div class="card">
+    <figure class="card c5">
+      <h3>House against consensus on XPU TAM</h3>
+      <p class="units">XPU TAM, US$bn</p>
+      <div class="legend" data-legend="xputam"></div>
+      <div class="plot" data-chart="xpuTam"></div>
+      <figcaption data-cite="xpuTam"></figcaption>
+    </figure>
+
+    <div class="dtable c5">
+      <h3>Foundry capex converts to XPU revenue</h3>
+      <p class="units">TSMC cumulative capex against the XPU revenue it supports</p>
+      <div class="tblwrap" data-table="tsmc"></div>
+      <figcaption data-cite="tsmc"></figcaption>
+    </div>
+
+    <figure class="card c7">
       <h3>Server CPU revenues by vendor</h3>
-      <div class="note">Total grows $25bn → $81bn (26% CAGR 2025-30). Arm goes from $4bn to $36bn (44% share); Intel recovers to $24bn but its share halves to 29%.</div>
-      <div class="chart-wrap" id="chart-cpu-rev"></div>
-      <div class="source">Source: CPU p.8</div>
-    </div>
-    <div class="card">
-      <h3>AI server CPU market share</h3>
-      <div class="note">Arm (via Nvidia Grace/Vera) 40% → 55% by 2030. Intel's Nvidia partnership ($5bn stake, NVLink) helps but share losses persist.</div>
-      <div class="chart-wrap" id="chart-ai-cpu-share"></div>
-      <div class="source">Source: CPU p.5</div>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <h3>Server CPU shipments: AI overtakes traditional</h3>
-      <div class="note">AI server CPUs grow 43%/yr to 30m units by 2030 while traditional units recover to their 2020 peak (17m) — the CPU:GPU-die ratio doubles from 1:4 to 1:2 with standalone CPU racks.</div>
-      <div class="chart-wrap" id="chart-cpu-units"></div>
-      <div class="source">Source: CPU p.2, p.4</div>
-    </div>
-    <div class="card">
+      <p class="units">US$bn · 2030 mix: Arm 44%, Intel 29%, AMD 27%</p>
+      <div class="legend" data-legend="cpu"></div>
+      <div class="plot" data-chart="cpuRevenue"></div>
+      <figcaption data-cite="serverCpuRevenue"></figcaption>
+    </figure>
+
+    <figure class="card c7">
+      <h3>AI server CPU share, by architecture</h3>
+      <p class="units">Share of AI server CPUs, %</p>
+      <div class="legend" data-legend="aicpu"></div>
+      <div class="plot" data-chart="aiCpuShare"></div>
+      <figcaption data-cite="aiCpuShare"></figcaption>
+    </figure>
+
+    <div class="dtable c5">
       <h3>The 2030 CPU TAM debate</h3>
-      <div class="note">NSR's bottom-up says $81bn; AMD claims $120bn+, Arm ~$100bn, Nvidia $200bn for Vera alone. Even the conservative case triples the market.</div>
-      <div class="chart-wrap" id="chart-cpu-tam"></div>
-      <div class="source">Sources: CPU p.8, NVDA-CPU p.1, BIBLE-1Q26 p.13</div>
+      <p class="units">Bottom-up estimate against company claims</p>
+      <div class="tblwrap" data-table="cpuTam"></div>
+      <figcaption data-cite="cpuTam2030"></figcaption>
     </div>
-  </div>
-  <div class="card">
-    <h3>Unpacking Nvidia's $20bn CPU guide (2026)</h3>
-    <div class="note">CPU-only racks for agentic AI and reinforcement learning are ramping at a 33-53% attach rate in year one, and Nvidia instantly holds >33% of CPU revenues.</div>
-    <div id="table-nvda-cpu"></div>
-    <div class="source">Source: NVDA-CPU p.1 (26-May-2026)</div>
-  </div>
-</section>
 
-<!-- ============ VENDORS ============ -->
-<section class="panel" id="p-vendors">
-  <h2 class="section-title">Vendor &amp; company positioning</h2>
-  <p class="section-lede">All companies covered or analyzed across the 13 reports, with NSR ratings and target prices as of the June 2026 Bible.</p>
-  <div class="card">
-    <h3>AMD revenue model, 2025–2030 (NSR)</h3>
-    <div class="note">Datacenter grows from $16.6bn (2025) to $131bn (2030): DC GPUs reach $90bn (>10% share) and DC CPUs ~$40bn. Group revenue $155.7bn, EPS $29.21 → TP $530 (Buy, best idea).</div>
-    <div class="chart-wrap" id="chart-amd"></div>
-    <div class="source">Source: AMD-1Q26 p.8-9, p.14 (6-May-2026)</div>
-  </div>
-  <div class="vendor-grid" id="vendor-cards"></div>
-</section>
+    <figure class="card c7">
+      <h3>AMD's datacentre GPU share has stalled; the revenue has not</h3>
+      <p class="units">AMD datacentre GPU revenue, US$bn</p>
+      <div class="legend" data-legend="amd"></div>
+      <div class="plot" data-chart="amdGpu"></div>
+      <figcaption data-cite="amdGpuShare"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="amdGpu"></div></details>
+    </figure>
 
-<!-- ============ TECH ============ -->
-<section class="panel" id="p-tech">
-  <h2 class="section-title">Technology transitions &amp; supply constraints</h2>
-  <p class="section-lede">Where the architecture is going, and which layers gate the whole buildout.</p>
-  <div class="card">
-    <h3>Supply constraint map</h3>
-    <div class="note">Severity by layer and year, coded from company commentary in the 1Q26 Bible. Hover cells for the underlying evidence and source.</div>
-    <div id="chart-supply"></div>
-    <div class="source">Source: BIBLE-1Q26 p.3, p.9, p.12-18, p.26 — NSR company-commentary compilation, severity coding by this dashboard</div>
-  </div>
-  <div id="tech-cards"></div>
-</section>
-
-<!-- ============ ROI ============ -->
-<section class="panel" id="p-roi">
-  <h2 class="section-title">ROI &amp; customer economics</h2>
-  <p class="section-lede">Cloud AI earns lower returns than traditional cloud — but still healthy ones, especially over the true life of the chips. The hyperscaler P&amp;L can absorb the depreciation wave, with one exception.</p>
-  <div class="grid-2">
-    <div class="card">
-      <h3>Traditional vs AI cloud server economics</h3>
-      <div class="note">Gross cash return on gross operating assets: ~50% traditional vs ~35% AI. AI cloud is more fragmented, bought in bulk, with lower switching costs — and far more capital-intensive.</div>
-      <div id="table-econ"></div>
-      <div class="source">Source: ROIC p.3, p.7 (What returns to expect on Cloud AI?, 28-Jan-2026)</div>
-    </div>
-    <div class="card">
-      <h3>Oracle–OpenAI 4.5GW contract: FCF profile</h3>
-      <div class="note">12% IRR over the contract (2H27–1H32, ~$300bn revenues, 30% GM) — but 20% IRR over the 10-year useful life of the chips, as post-depreciation compute costs ~70-80% less. Hover bars for revenue/GM by year.</div>
-      <div class="chart-wrap" id="chart-oracle"></div>
-      <div class="source">Source: ROIC p.5, p.10</div>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <h3>Who pays for the 2026 cloud buildout?</h3>
-      <div class="note">$710bn of 2026 cloud capex needs $190bn incremental 2027 cloud revenues. >75% is covered by frontier labs, native AI startups and hyperscalers themselves. Hover for detail.</div>
-      <div id="chart-payback"></div>
-      <div class="source">Source: INFRA-III p.1 (4-Mar-2026)</div>
-    </div>
-    <div class="card">
-      <h3>Azure AI gross margins</h3>
-      <div class="note">Estimated from incremental Intelligent Cloud gross profit. OpenAI dilutes; enterprise mix lifts margins toward 40-50% over time.</div>
-      <div id="table-azure"></div>
-      <div class="source">Source: ROIC p.6</div>
-    </div>
-  </div>
-  <div class="grid-2">
-    <div class="card">
-      <h3>Replatforming scorecard — 2026E YoY growth</h3>
-      <div class="note">The ROI test: can cash costs grow slower than revenues by enough to absorb surging D&amp;A? Microsoft, Google, Amazon pass; Meta is the only hyperscaler overspending. Hover for verdicts.</div>
-      <div id="chart-replat"></div>
-      <div class="source">Source: REPLAT p.1 (30-Apr-2026)</div>
-    </div>
-    <div class="card">
-      <h3>Hyperscaler internal P&amp;L, 2026 → 2030</h3>
-      <div class="note">Base case: capex for internal workloads grows 17%/yr and D&amp;A 35%/yr — absorbed if cash costs grow just 3pts slower than revenues (AI efficiencies in ads &amp; coding).</div>
-      <div id="table-pnl"></div>
-      <div class="source">Source: INFRA-IV p.1 (6-Mar-2026)</div>
+    <div class="dtable c5">
+      <h3>AMD x86 server CPU share</h3>
+      <p class="units">Implied share of Intel plus AMD server CPU revenue, %</p>
+      <div class="tblwrap" data-table="amdCpu"></div>
+      <p class="say" data-say="amdCpuShare"></p>
+      <figcaption data-cite="amdCpuShare"></figcaption>
     </div>
   </div>
 </section>
 
-<!-- ============ INSIGHTS ============ -->
-<section class="panel" id="p-insights">
-  <h2 class="section-title">Key insights &amp; investment takeaways</h2>
-  <p class="section-lede">The ten conclusions that matter most across the 13 reports — each with its sources.</p>
-  <div id="insight-list"></div>
-  <div class="card">
-    <h3>Source reports</h3>
-    <div class="note">Report IDs used in citations throughout this dashboard.</div>
-    <div id="report-list"></div>
+<!-- ===================== 06 SUPPLY ===================== -->
+<section class="panel" id="p-supply" role="tabpanel" aria-labelledby="t-supply" hidden>
+  <div class="lede" data-lede="ecosystem"></div>
+
+  <div class="dtable" style="margin-top:22px">
+    <h3>What the supply chain said this quarter</h3>
+    <p class="units">Selected datapoints driving the forecast increase, 2Q26 earnings season</p>
+    <div class="tblwrap" data-table="chain"></div>
+    <figcaption data-cite="supplyChainSignals"></figcaption>
+  </div>
+
+  <div class="sechead"><h3>Where the constraints actually bind</h3><span class="units">Severity by layer, 2026–2028</span></div>
+  <div class="dtable" style="margin-top:20px">
+    <div class="tblwrap" id="heatmap"></div>
+    <figcaption>Severity is graded from company commentary: sold out, constrained, or balanced. Hover a layer for the evidence behind the grade.</figcaption>
+  </div>
+
+  <div class="sechead"><h3>Technology transitions in flight</h3><span class="units">What changes in the rack, and what it implies</span></div>
+  <div class="cards" id="tech-cards"></div>
+</section>
+
+<!-- ===================== 07 COMPANIES ===================== -->
+<section class="panel" id="p-companies" role="tabpanel" aria-labelledby="t-companies" hidden>
+  <div class="lede">
+    <div>
+      <div class="kicker">Companies</div>
+      <h2>Where the buildout lands on the P&amp;L.</h2>
+      <p>Ratings and target prices below are New Street Research's own, reproduced as reported and stamped with the vintage they came from. Where the September notes refreshed a name, the earlier rating is retained underneath as a revision marker rather than deleted.</p>
+    </div>
+    <div class="lede-side">
+      <p><b>Not investment advice.</b> This is a synthesis of published third-party research for internal reference. It is not a recommendation and not a substitute for the source notes.</p>
+    </div>
+  </div>
+
+  <div class="dtable" style="margin-top:22px">
+    <h3>Coverage and recommendations</h3>
+    <p class="units">Ratings and target prices as at 18 September 2026</p>
+    <div class="tblwrap" data-table="picks"></div>
+    <figcaption data-cite="coverage"></figcaption>
+  </div>
+
+  <div class="sechead"><h3>Positioning, name by name</h3><span class="units" id="vendor-count"></span></div>
+  <div class="cards" id="vendor-cards"></div>
+
+  <div class="grid">
+    <figure class="card c12">
+      <h3>AMD revenue model, 2025–2030</h3>
+      <p class="units">US$bn by segment</p>
+      <div class="legend" data-legend="amdmodel"></div>
+      <div class="plot" data-chart="amdModel"></div>
+      <figcaption data-cite="amdModel"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="amdModel"></div></details>
+    </figure>
   </div>
 </section>
 
-<!-- ============ EXPLORER ============ -->
-<section class="panel" id="p-explorer">
-  <h2 class="section-title">Data explorer</h2>
-  <p class="section-lede">Every cleaned data point with its source report and page. Filter by segment, company, year or report; the same data ships as CSV/JSON in the <code>data/</code> folder.</p>
-  <div class="card">
+<!-- ===================== 08 2Q26 SCORECARD ===================== -->
+<section class="panel" id="p-quarter" role="tabpanel" aria-labelledby="t-quarter" hidden>
+  <div class="lede" data-lede="scorecard"></div>
+  <div class="tiles" id="q-tiles"></div>
+
+  <div class="grid">
+    <figure class="card c6">
+      <h3>Public cloud growth accelerated at all four</h3>
+      <p class="units">2Q26 revenue growth, % year on year</p>
+      <div class="plot" data-chart="cloudGrowth"></div>
+      <figcaption>Growth rates are as reported; Azure is IaaS plus PaaS. The sub-label carries the quarter-on-quarter change in the growth rate. <span data-cite-inline="cloudGrowth2Q26"></span></figcaption>
+    </figure>
+
+    <figure class="card c6">
+      <h3>Reported against expected</h3>
+      <p class="units">2Q26 outcome vs consensus, %</p>
+      <div class="legend" data-legend="beat"></div>
+      <div class="plot" data-chart="beatMiss"></div>
+      <figcaption data-cite="beatMiss2Q26"></figcaption>
+    </figure>
+
+    <figure class="card c12">
+      <h3>What the street did to its numbers this season</h3>
+      <p class="units">Change in consensus estimates over the 2Q26 earnings season, %</p>
+      <div class="legend" data-legend="rev"></div>
+      <div class="plot" data-chart="revisions"></div>
+      <figcaption data-cite="streetRevisions"></figcaption>
+      <details class="dv"><summary>Data table</summary><div class="tblwrap" data-table="rev"></div></details>
+    </figure>
+
+    <figure class="card c6">
+      <h3>Three of four hyperscalers have room to expand margins</h3>
+      <p class="units">2026E revenue growth less cash-cost growth, percentage points</p>
+      <div class="legend" data-legend="gap"></div>
+      <div class="plot" data-chart="replatGap"></div>
+      <figcaption>A positive gap means revenue is growing faster than cash costs, creating room to absorb higher depreciation. Meta is the one name spending more than it can currently afford. <span data-cite-inline="replatforming2Q26"></span></figcaption>
+    </figure>
+
+    <div class="dtable c6">
+      <h3>The replatforming scorecard</h3>
+      <p class="units">2026E year-on-year growth, % · Microsoft on house estimates, others on consensus</p>
+      <div class="tblwrap" data-table="replat"></div>
+      <figcaption data-cite="replatforming2Q26"></figcaption>
+    </div>
+  </div>
+
+  <div class="sechead"><h3>In their own words</h3><span class="units">Selected management commentary, July–September 2026</span></div>
+  <div class="quotes" id="quotes"></div>
+</section>
+
+<!-- ===================== 09 CONCLUSIONS ===================== -->
+<section class="panel" id="p-insights" role="tabpanel" aria-labelledby="t-insights" hidden>
+  <div class="lede">
+    <div>
+      <div class="kicker">Conclusions</div>
+      <h2>Ten things the twenty notes agree on.</h2>
+      <p>Each conclusion is drawn from the current vintage and cites the notes behind it. Where the September work overturned an earlier number, the revision ladder below records both, so the direction of travel stays visible rather than being quietly overwritten.</p>
+    </div>
+    <div class="lede-side">
+      <p><b>Every figure on this dashboard is traceable.</b> Chart footnotes carry report identifiers, the ladder records what changed, and the data tab lists each underlying value against its source note.</p>
+    </div>
+  </div>
+
+  <ol class="pts" id="insight-list" style="margin-top:22px"></ol>
+
+  <div class="sechead"><h3>What changed, vintage by vintage</h3><span class="units">February → April → June → September 2026</span></div>
+  <div class="dtable" style="margin-top:20px">
+    <div class="tblwrap" data-table="ladder"></div>
+    <figcaption data-cite="vintageLadder"></figcaption>
+  </div>
+
+  <div class="sechead"><h3>Source notes</h3><span class="units">Report identifiers used in citations throughout</span></div>
+  <div class="dtable" style="margin-top:20px">
+    <div class="tblwrap" id="report-list"></div>
+  </div>
+
+  <p class="note" data-convention="1"></p>
+  <p class="note" data-convention="2"></p>
+</section>
+
+<!-- ===================== 10 DATA ===================== -->
+<section class="panel" id="p-explorer" role="tabpanel" aria-labelledby="t-explorer" hidden>
+  <div class="lede">
+    <div>
+      <div class="kicker">Data</div>
+      <h2>Every value, with the note it came from.</h2>
+      <p>Filter by segment, company, year or source note. The same rows ship as CSV and JSON in the <span class="mono">data/</span> folder, regenerated from a single canonical file.</p>
+    </div>
+    <div class="lede-side">
+      <p><b>On page references.</b> Rows drawn from the January–June notes carry a page number. The July–September notes are cited at note level, where the source work presents figures as exhibits rather than numbered pages; those rows show the report identifier without a page.</p>
+    </div>
+  </div>
+
+  <div class="dtable" style="margin-top:22px; padding-bottom:18px">
     <div class="filters">
       <label>Segment <select id="f-segment"></select></label>
       <label>Company <select id="f-company"></select></label>
       <label>Year <select id="f-year"></select></label>
-      <label>Report <select id="f-report"></select></label>
-      <label>Search <input id="f-search" type="search" placeholder="e.g. HBM, TAM, share…"></label>
+      <label>Source note <select id="f-report"></select></label>
+      <label>Search <input id="f-search" type="search" placeholder="HBM, TAM, share…"></label>
+      <button class="reset" id="f-reset" type="button">Reset</button>
       <span class="count" id="f-count"></span>
     </div>
     <div id="explorer-table"></div>
@@ -270,21 +495,22 @@
 
 </main>
 
-<footer class="site">
-  Built 6-Jul-2026 from 13 New Street Research reports (Pierre Ferragu &amp; team, Global Technology Research), Jan–Jun 2026.
-  All values are NSR estimates &amp; analysis unless marked as company guidance ("guide"). This dashboard is an internal analytical synthesis of licensed research — do not redistribute.
+<footer>
+  <div class="wrap cols">
+    <div>
+      <h4>Source notes</h4>
+      <ol id="footer-reports"></ol>
+    </div>
+    <div>
+      <h4>Method and conventions</h4>
+      <p class="fine" id="footer-method"></p>
+      <p class="fine" id="footer-disclaimer"></p>
+    </div>
+  </div>
 </footer>
 
 <script src="js/data.js"></script>
 <script src="js/charts.js"></script>
 <script src="js/app.js"></script>
-<script>
-  // Momentum table (small enough to inline)
-  (function(){
-    const rows = window.NSR.series.quarterMomentum.rows;
-    document.getElementById("momentum-body").innerHTML = rows.map(r =>
-      `<tr><td>${r.metric}</td><td class="num"><b>${r.value}</b></td><td style="color:var(--ink-2)">${r.detail}</td></tr>`).join("");
-  })();
-</script>
 </body>
 </html>

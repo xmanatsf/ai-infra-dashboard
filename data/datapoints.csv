@@ -77,3 +77,250 @@ Hyperscale AI orders,Networking,Cisco,2026,9,US$bn (FY26),guide,BIBLE-1Q26,16,4.
 Interconnect revenue growth,Optics,Marvell,2027,70,% YoY (FY27),guide,BIBLE-1Q26,18,Raised from 50%
 ASIC deployment,XPU/ASIC,Broadcom,2027,10,GW,guide,BIBLE-1Q26,12,Plus 20GW for OpenAI & Anthropic through 2028 (AI XPV platform)
 AI DC spending,Buildout,Industry,2030,3500,US$bn ($3-4tn),guide,BIBLE-1Q26,12,"Nvidia guidance, reiterated May-2026"
+AI infra capex - XPUs,AI infra capex,Industry,2025,205,US$bn,actual,CAPEX-4TN,,CAGR 2025-30 53%
+AI infra capex - XPUs,AI infra capex,Industry,2026,408,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 53%
+AI infra capex - XPUs,AI infra capex,Industry,2027,782,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 53%
+AI infra capex - XPUs,AI infra capex,Industry,2028,1252,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 53%
+AI infra capex - XPUs,AI infra capex,Industry,2029,1517,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 53%
+AI infra capex - XPUs,AI infra capex,Industry,2030,1702,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 53%
+AI infra capex - CPUs,AI infra capex,Industry,2025,6,US$bn,actual,CAPEX-4TN,,CAGR 2025-30 93%
+AI infra capex - CPUs,AI infra capex,Industry,2026,27,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 93%
+AI infra capex - CPUs,AI infra capex,Industry,2027,56,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 93%
+AI infra capex - CPUs,AI infra capex,Industry,2028,90,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 93%
+AI infra capex - CPUs,AI infra capex,Industry,2029,129,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 93%
+AI infra capex - CPUs,AI infra capex,Industry,2030,168,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 93%
+AI infra capex - DRAM and NAND,AI infra capex,Industry,2025,26,US$bn,actual,CAPEX-4TN,,CAGR 2025-30 75%
+AI infra capex - DRAM and NAND,AI infra capex,Industry,2026,160,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 75%
+AI infra capex - DRAM and NAND,AI infra capex,Industry,2027,338,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 75%
+AI infra capex - DRAM and NAND,AI infra capex,Industry,2028,459,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 75%
+AI infra capex - DRAM and NAND,AI infra capex,Industry,2029,431,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 75%
+AI infra capex - DRAM and NAND,AI infra capex,Industry,2030,423,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 75%
+AI infra capex - Other server content,AI infra capex,Industry,2025,48,US$bn,actual,CAPEX-4TN,,CAGR 2025-30 51%
+AI infra capex - Other server content,AI infra capex,Industry,2026,105,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 51%
+AI infra capex - Other server content,AI infra capex,Industry,2027,192,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 51%
+AI infra capex - Other server content,AI infra capex,Industry,2028,293,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 51%
+AI infra capex - Other server content,AI infra capex,Industry,2029,338,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 51%
+AI infra capex - Other server content,AI infra capex,Industry,2030,373,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 51%
+AI infra capex - Networking,AI infra capex,Industry,2025,40,US$bn,actual,CAPEX-4TN,,CAGR 2025-30 63%
+AI infra capex - Networking,AI infra capex,Industry,2026,103,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 63%
+AI infra capex - Networking,AI infra capex,Industry,2027,211,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 63%
+AI infra capex - Networking,AI infra capex,Industry,2028,336,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 63%
+AI infra capex - Networking,AI infra capex,Industry,2029,405,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 63%
+AI infra capex - Networking,AI infra capex,Industry,2030,465,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 63%
+AI infra capex - Other equipment and buildings,AI infra capex,Industry,2025,258,US$bn,actual,CAPEX-4TN,,CAGR 2025-30 32%
+AI infra capex - Other equipment and buildings,AI infra capex,Industry,2026,328,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 32%
+AI infra capex - Other equipment and buildings,AI infra capex,Industry,2027,614,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 32%
+AI infra capex - Other equipment and buildings,AI infra capex,Industry,2028,899,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 32%
+AI infra capex - Other equipment and buildings,AI infra capex,Industry,2029,986,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 32%
+AI infra capex - Other equipment and buildings,AI infra capex,Industry,2030,1016,US$bn,estimate,CAPEX-4TN,,CAGR 2025-30 32%
+AI infra capex - total,AI infra capex,Industry,2025,584,US$bn,actual,CAPEX-4TN,,YoY -
+AI infra capex - total,AI infra capex,Industry,2026,1132,US$bn,estimate,CAPEX-4TN,,YoY 94%
+AI infra capex - total,AI infra capex,Industry,2027,2190,US$bn,estimate,CAPEX-4TN,,YoY 93%
+AI infra capex - total,AI infra capex,Industry,2028,3330,US$bn,estimate,CAPEX-4TN,,YoY 52%
+AI infra capex - total,AI infra capex,Industry,2029,3810,US$bn,estimate,CAPEX-4TN,,YoY 14%
+AI infra capex - total,AI infra capex,Industry,2030,4150,US$bn,estimate,CAPEX-4TN,,YoY 9%
+Memory spending - HBM,Memory,Industry,2025,34,US$bn,actual,CAPEX-4TN,,Modelled gross margin 69%
+Memory spending - HBM,Memory,Industry,2026,82,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 75%
+Memory spending - HBM,Memory,Industry,2027,189,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 81%
+Memory spending - HBM,Memory,Industry,2028,332,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 79%
+Memory spending - HBM,Memory,Industry,2029,457,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 77%
+Memory spending - HBM,Memory,Industry,2030,560,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 76%
+Memory spending - DRAM,Memory,Industry,2025,17,US$bn,actual,CAPEX-4TN,,Modelled gross margin 58%
+Memory spending - DRAM,Memory,Industry,2026,100,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 88%
+Memory spending - DRAM,Memory,Industry,2027,211,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 88%
+Memory spending - DRAM,Memory,Industry,2028,273,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 83%
+Memory spending - DRAM,Memory,Industry,2029,250,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 79%
+Memory spending - DRAM,Memory,Industry,2030,241,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 75%
+Memory spending - NAND,Memory,Industry,2025,9,US$bn,actual,CAPEX-4TN,,Modelled gross margin 25%
+Memory spending - NAND,Memory,Industry,2026,60,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 80%
+Memory spending - NAND,Memory,Industry,2027,127,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 80%
+Memory spending - NAND,Memory,Industry,2028,186,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 75%
+Memory spending - NAND,Memory,Industry,2029,181,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 71%
+Memory spending - NAND,Memory,Industry,2030,182,US$bn,estimate,CAPEX-4TN,,Modelled gross margin 67%
+HBM share of XPU spending,Memory,Industry,2025,16,%,actual,CAPEX-4TN,,
+HBM share of XPU spending,Memory,Industry,2026,20,%,estimate,CAPEX-4TN,,
+HBM share of XPU spending,Memory,Industry,2027,24,%,estimate,CAPEX-4TN,,
+HBM share of XPU spending,Memory,Industry,2028,26,%,estimate,CAPEX-4TN,,
+HBM share of XPU spending,Memory,Industry,2029,30,%,estimate,CAPEX-4TN,,
+HBM share of XPU spending,Memory,Industry,2030,33,%,estimate,CAPEX-4TN,,
+Hyperscaler group - Core revenues,Hyperscaler P&L,Top-8 hyperscalers,2025,1349,US$bn,actual,FIN-III,,
+Hyperscaler group - Core revenues,Hyperscaler P&L,Top-8 hyperscalers,2026,1550,US$bn,estimate,FIN-III,,
+Hyperscaler group - Core revenues,Hyperscaler P&L,Top-8 hyperscalers,2027,1780,US$bn,estimate,FIN-III,,
+Hyperscaler group - Core revenues,Hyperscaler P&L,Top-8 hyperscalers,2028,2041,US$bn,estimate,FIN-III,,
+Hyperscaler group - Core revenues,Hyperscaler P&L,Top-8 hyperscalers,2029,2337,US$bn,estimate,FIN-III,,
+Hyperscaler group - Core revenues,Hyperscaler P&L,Top-8 hyperscalers,2030,2673,US$bn,estimate,FIN-III,,
+Hyperscaler group - Cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2025,279,US$bn,actual,FIN-III,,
+Hyperscaler group - Cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2026,416,US$bn,estimate,FIN-III,,
+Hyperscaler group - Cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2027,634,US$bn,estimate,FIN-III,,
+Hyperscaler group - Cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2028,957,US$bn,estimate,FIN-III,,
+Hyperscaler group - Cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2029,1382,US$bn,estimate,FIN-III,,
+Hyperscaler group - Cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2030,1881,US$bn,estimate,FIN-III,,
+Hyperscaler group - AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2025,55,US$bn,actual,FIN-III,,
+Hyperscaler group - AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2026,163,US$bn,estimate,FIN-III,,
+Hyperscaler group - AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2027,356,US$bn,estimate,FIN-III,,
+Hyperscaler group - AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2028,651,US$bn,estimate,FIN-III,,
+Hyperscaler group - AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2029,1046,US$bn,estimate,FIN-III,,
+Hyperscaler group - AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2030,1511,US$bn,estimate,FIN-III,,
+Hyperscaler group - Non-AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2025,224,US$bn,actual,FIN-III,,
+Hyperscaler group - Non-AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2026,253,US$bn,estimate,FIN-III,,
+Hyperscaler group - Non-AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2027,278,US$bn,estimate,FIN-III,,
+Hyperscaler group - Non-AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2028,306,US$bn,estimate,FIN-III,,
+Hyperscaler group - Non-AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2029,336,US$bn,estimate,FIN-III,,
+Hyperscaler group - Non-AI cloud revenues,Hyperscaler P&L,Top-8 hyperscalers,2030,370,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group revenues,Hyperscaler P&L,Top-8 hyperscalers,2025,1628,US$bn,actual,FIN-III,,
+Hyperscaler group - Group revenues,Hyperscaler P&L,Top-8 hyperscalers,2026,1965,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group revenues,Hyperscaler P&L,Top-8 hyperscalers,2027,2414,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group revenues,Hyperscaler P&L,Top-8 hyperscalers,2028,2998,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group revenues,Hyperscaler P&L,Top-8 hyperscalers,2029,3719,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group revenues,Hyperscaler P&L,Top-8 hyperscalers,2030,4554,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBITDA,Hyperscaler P&L,Top-8 hyperscalers,2025,643,US$bn,actual,FIN-III,,
+Hyperscaler group - EBITDA,Hyperscaler P&L,Top-8 hyperscalers,2026,853,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBITDA,Hyperscaler P&L,Top-8 hyperscalers,2027,1174,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBITDA,Hyperscaler P&L,Top-8 hyperscalers,2028,1613,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBITDA,Hyperscaler P&L,Top-8 hyperscalers,2029,2174,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBITDA,Hyperscaler P&L,Top-8 hyperscalers,2030,2841,US$bn,estimate,FIN-III,,
+Hyperscaler group - Depreciation & amortisation,Hyperscaler P&L,Top-8 hyperscalers,2025,142,US$bn,actual,FIN-III,,
+Hyperscaler group - Depreciation & amortisation,Hyperscaler P&L,Top-8 hyperscalers,2026,222,US$bn,estimate,FIN-III,,
+Hyperscaler group - Depreciation & amortisation,Hyperscaler P&L,Top-8 hyperscalers,2027,384,US$bn,estimate,FIN-III,,
+Hyperscaler group - Depreciation & amortisation,Hyperscaler P&L,Top-8 hyperscalers,2028,634,US$bn,estimate,FIN-III,,
+Hyperscaler group - Depreciation & amortisation,Hyperscaler P&L,Top-8 hyperscalers,2029,964,US$bn,estimate,FIN-III,,
+Hyperscaler group - Depreciation & amortisation,Hyperscaler P&L,Top-8 hyperscalers,2030,1350,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBIT,Hyperscaler P&L,Top-8 hyperscalers,2025,501,US$bn,actual,FIN-III,,
+Hyperscaler group - EBIT,Hyperscaler P&L,Top-8 hyperscalers,2026,631,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBIT,Hyperscaler P&L,Top-8 hyperscalers,2027,789,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBIT,Hyperscaler P&L,Top-8 hyperscalers,2028,979,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBIT,Hyperscaler P&L,Top-8 hyperscalers,2029,1209,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBIT,Hyperscaler P&L,Top-8 hyperscalers,2030,1490,US$bn,estimate,FIN-III,,
+Hyperscaler group - Operating cash flow,Hyperscaler P&L,Top-8 hyperscalers,2025,580,US$bn,actual,FIN-III,,
+Hyperscaler group - Operating cash flow,Hyperscaler P&L,Top-8 hyperscalers,2026,774,US$bn,estimate,FIN-III,,
+Hyperscaler group - Operating cash flow,Hyperscaler P&L,Top-8 hyperscalers,2027,1074,US$bn,estimate,FIN-III,,
+Hyperscaler group - Operating cash flow,Hyperscaler P&L,Top-8 hyperscalers,2028,1489,US$bn,estimate,FIN-III,,
+Hyperscaler group - Operating cash flow,Hyperscaler P&L,Top-8 hyperscalers,2029,2019,US$bn,estimate,FIN-III,,
+Hyperscaler group - Operating cash flow,Hyperscaler P&L,Top-8 hyperscalers,2030,2650,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group capex,Hyperscaler P&L,Top-8 hyperscalers,2025,415,US$bn,actual,FIN-III,,
+Hyperscaler group - Group capex,Hyperscaler P&L,Top-8 hyperscalers,2026,795,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group capex,Hyperscaler P&L,Top-8 hyperscalers,2027,1384,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group capex,Hyperscaler P&L,Top-8 hyperscalers,2028,1975,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group capex,Hyperscaler P&L,Top-8 hyperscalers,2029,2181,US$bn,estimate,FIN-III,,
+Hyperscaler group - Group capex,Hyperscaler P&L,Top-8 hyperscalers,2030,2387,US$bn,estimate,FIN-III,,
+Hyperscaler group - Free cash flow,Hyperscaler P&L,Top-8 hyperscalers,2025,164,US$bn,actual,FIN-III,,
+Hyperscaler group - Free cash flow,Hyperscaler P&L,Top-8 hyperscalers,2026,-22,US$bn,estimate,FIN-III,,
+Hyperscaler group - Free cash flow,Hyperscaler P&L,Top-8 hyperscalers,2027,-310,US$bn,estimate,FIN-III,,
+Hyperscaler group - Free cash flow,Hyperscaler P&L,Top-8 hyperscalers,2028,-486,US$bn,estimate,FIN-III,,
+Hyperscaler group - Free cash flow,Hyperscaler P&L,Top-8 hyperscalers,2029,-162,US$bn,estimate,FIN-III,,
+Hyperscaler group - Free cash flow,Hyperscaler P&L,Top-8 hyperscalers,2030,263,US$bn,estimate,FIN-III,,
+Hyperscaler group - EBITDA margin,Hyperscaler P&L,Top-8 hyperscalers,2025,40,%,actual,FIN-III,,
+Hyperscaler group - EBITDA margin,Hyperscaler P&L,Top-8 hyperscalers,2026,43,%,estimate,FIN-III,,
+Hyperscaler group - EBITDA margin,Hyperscaler P&L,Top-8 hyperscalers,2027,49,%,estimate,FIN-III,,
+Hyperscaler group - EBITDA margin,Hyperscaler P&L,Top-8 hyperscalers,2028,54,%,estimate,FIN-III,,
+Hyperscaler group - EBITDA margin,Hyperscaler P&L,Top-8 hyperscalers,2029,58,%,estimate,FIN-III,,
+Hyperscaler group - EBITDA margin,Hyperscaler P&L,Top-8 hyperscalers,2030,62,%,estimate,FIN-III,,
+Hyperscaler group - EBIT margin,Hyperscaler P&L,Top-8 hyperscalers,2025,31,%,actual,FIN-III,,
+Hyperscaler group - EBIT margin,Hyperscaler P&L,Top-8 hyperscalers,2026,32,%,estimate,FIN-III,,
+Hyperscaler group - EBIT margin,Hyperscaler P&L,Top-8 hyperscalers,2027,33,%,estimate,FIN-III,,
+Hyperscaler group - EBIT margin,Hyperscaler P&L,Top-8 hyperscalers,2028,33,%,estimate,FIN-III,,
+Hyperscaler group - EBIT margin,Hyperscaler P&L,Top-8 hyperscalers,2029,33,%,estimate,FIN-III,,
+Hyperscaler group - EBIT margin,Hyperscaler P&L,Top-8 hyperscalers,2030,33,%,estimate,FIN-III,,
+Cumulative capex - Hyperscaler capex,Financing,Industry,2030,8.5,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Cumulative capex - Neocloud and tier-2 capex,Financing,Industry,2030,6.5,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Cumulative capex - Enterprise capex,Financing,Industry,2030,1.4,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Funding source - Hyperscaler OCF (consensus),Financing,Industry,2030,6,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Funding source - NSR uplift to hyperscaler OCF,Financing,Industry,2030,2,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Funding source - Tier-2 and neocloud OCF,Financing,Industry,2030,3.3,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Funding source - Enterprise and government capex,Financing,Industry,2030,1.4,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Funding source - External financing required,Financing,Industry,2030,3.7,US$tn,estimate,FIN-III,,Cumulative 2026-2030
+Hyperscaler capex - NSR,Capex tracker,Top-8 hyperscalers,2026,768,US$bn,estimate,CAPEX-GAP,,30-Jul-2026 vintage
+Hyperscaler capex - consensus,Capex tracker,Top-8 hyperscalers,2026,748,US$bn,estimate,CAPEX-GAP,,30-Jul-2026 vintage
+Hyperscaler FCF - NSR,Capex tracker,Top-8 hyperscalers,2026,-13,US$bn,estimate,CAPEX-GAP,,
+Hyperscaler FCF - consensus,Capex tracker,Top-8 hyperscalers,2026,-18,US$bn,estimate,CAPEX-GAP,,
+Hyperscaler capex - NSR,Capex tracker,Top-8 hyperscalers,2027,1262,US$bn,estimate,CAPEX-GAP,,30-Jul-2026 vintage
+Hyperscaler capex - consensus,Capex tracker,Top-8 hyperscalers,2027,1057,US$bn,estimate,CAPEX-GAP,,30-Jul-2026 vintage
+Hyperscaler FCF - NSR,Capex tracker,Top-8 hyperscalers,2027,-341,US$bn,estimate,CAPEX-GAP,,
+Hyperscaler FCF - consensus,Capex tracker,Top-8 hyperscalers,2027,-127,US$bn,estimate,CAPEX-GAP,,
+Hyperscaler capex - NSR,Capex tracker,Top-8 hyperscalers,2028,1568,US$bn,estimate,CAPEX-GAP,,30-Jul-2026 vintage
+Hyperscaler capex - consensus,Capex tracker,Top-8 hyperscalers,2028,1202,US$bn,estimate,CAPEX-GAP,,30-Jul-2026 vintage
+Hyperscaler FCF - NSR,Capex tracker,Top-8 hyperscalers,2028,-411,US$bn,estimate,CAPEX-GAP,,
+Hyperscaler FCF - consensus,Capex tracker,Top-8 hyperscalers,2028,-41,US$bn,estimate,CAPEX-GAP,,
+2026E Revenue growth,Replatforming,Microsoft,2026,18,%,estimate,REPLAT-2Q26,,Healthy
+2026E Total cost growth,Replatforming,Microsoft,2026,17,%,estimate,REPLAT-2Q26,,Healthy
+2026E D&A growth,Replatforming,Microsoft,2026,52,%,estimate,REPLAT-2Q26,,Healthy
+2026E Cash cost & SBC growth,Replatforming,Microsoft,2026,8,%,estimate,REPLAT-2Q26,,Healthy
+2026E Operating income growth,Replatforming,Microsoft,2026,19,%,estimate,REPLAT-2Q26,,Healthy
+2026E Revenue growth,Replatforming,Google,2026,24,%,estimate,REPLAT-2Q26,,Healthy
+2026E Total cost growth,Replatforming,Google,2026,21,%,estimate,REPLAT-2Q26,,Healthy
+2026E D&A growth,Replatforming,Google,2026,51,%,estimate,REPLAT-2Q26,,Healthy
+2026E Cash cost & SBC growth,Replatforming,Google,2026,19,%,estimate,REPLAT-2Q26,,Healthy
+2026E Operating income growth,Replatforming,Google,2026,28,%,estimate,REPLAT-2Q26,,Healthy
+2026E Revenue growth,Replatforming,Amazon,2026,16,%,estimate,REPLAT-2Q26,,Healthy
+2026E Total cost growth,Replatforming,Amazon,2026,14,%,estimate,REPLAT-2Q26,,Healthy
+2026E D&A growth,Replatforming,Amazon,2026,32,%,estimate,REPLAT-2Q26,,Healthy
+2026E Cash cost & SBC growth,Replatforming,Amazon,2026,12,%,estimate,REPLAT-2Q26,,Healthy
+2026E Operating income growth,Replatforming,Amazon,2026,25,%,estimate,REPLAT-2Q26,,Healthy
+2026E Revenue growth,Replatforming,Meta,2026,26,%,estimate,REPLAT-2Q26,,Overspending
+2026E Total cost growth,Replatforming,Meta,2026,39,%,estimate,REPLAT-2Q26,,Overspending
+2026E D&A growth,Replatforming,Meta,2026,57,%,estimate,REPLAT-2Q26,,Overspending
+2026E Cash cost & SBC growth,Replatforming,Meta,2026,35,%,estimate,REPLAT-2Q26,,Overspending
+2026E Operating income growth,Replatforming,Meta,2026,9,%,estimate,REPLAT-2Q26,,Overspending
+2Q26 cloud revenue growth,Quarterly,Oracle OCI,2026,121,%,actual,BIBLE-2Q26,,+28pts faster than 1Q26
+2Q26 cloud revenue growth,Quarterly,Google Cloud,2026,82,%,actual,BIBLE-2Q26,,+19pts faster than 1Q26
+2Q26 cloud revenue growth,Quarterly,Azure (IaaS+PaaS),2026,43,%,actual,BIBLE-2Q26,,+3pts faster than 1Q26
+2Q26 cloud revenue growth,Quarterly,AWS,2026,37,%,actual,BIBLE-2Q26,,+9pts faster than 1Q26
+2Q26 outcome vs consensus,Quarterly,Hyperscale capex,2026,6,%,actual,BIBLE-2Q26,,Sixth straight beat
+2Q26 outcome vs consensus,Quarterly,DC compute semis,2026,4,%,actual,BIBLE-2Q26,,Above since 2Q23
+2Q26 outcome vs consensus,Quarterly,Neocloud capex,2026,-11,%,actual,BIBLE-2Q26,,Lumpy deliveries
+"Consensus revision over 2Q26 season, 2026E",Quarterly,Hyperscale capex,2026,7,%,estimate,BIBLE-2Q26,,
+"Consensus revision over 2Q26 season, 2026E",Quarterly,Neocloud capex,2026,16,%,estimate,BIBLE-2Q26,,
+"Consensus revision over 2Q26 season, 2026E",Quarterly,DC compute semis,2026,4,%,estimate,BIBLE-2Q26,,
+"Consensus revision over 2Q26 season, 2027E",Quarterly,Hyperscale capex,2027,19,%,estimate,BIBLE-2Q26,,
+"Consensus revision over 2Q26 season, 2027E",Quarterly,Neocloud capex,2027,42,%,estimate,BIBLE-2Q26,,
+"Consensus revision over 2Q26 season, 2027E",Quarterly,DC compute semis,2027,23,%,estimate,BIBLE-2Q26,,
+AMD DC GPU revenue (4Q23),XPU,AMD,2023,0.5,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 2.9%
+AMD DC GPU revenue (1Q24),XPU,AMD,2024,0.7,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 3.2%
+AMD DC GPU revenue (2Q24),XPU,AMD,2024,1.1,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 4.4%
+AMD DC GPU revenue (3Q24),XPU,AMD,2024,1.7,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 5.7%
+AMD DC GPU revenue (4Q24),XPU,AMD,2024,1.8,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 5.2%
+AMD DC GPU revenue (1Q25),XPU,AMD,2025,1.7,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 4.8%
+AMD DC GPU revenue (2Q25),XPU,AMD,2025,1.1,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 3.2%
+AMD DC GPU revenue (3Q25),XPU,AMD,2025,2,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 4.3%
+AMD DC GPU revenue (4Q25),XPU,AMD,2025,2.6,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 4.8%
+AMD DC GPU revenue (1Q26),XPU,AMD,2026,2.5,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 4%
+AMD DC GPU revenue (2Q26),XPU,AMD,2026,2.8,US$bn,actual,BIBLE-2Q26,,Share of DC GPUs 3.7%
+AMD DC GPU revenue (3Q26E),XPU,AMD,2026,3.3,US$bn,estimate,BIBLE-2Q26,,Share of DC GPUs 3.9%
+Per GW - Asset required,Unit economics,Neocloud,2030,45,US$bn,estimate,LAB-ECON,,
+Per GW - Asset required,Unit economics,"Frontier lab, vertically integrated",2030,45,US$bn,estimate,LAB-ECON,,
+Per GW - Revenues,Unit economics,Neocloud,2030,13,US$bn,estimate,LAB-ECON,,
+Per GW - Revenues,Unit economics,Frontier lab on a neocloud,2030,21,US$bn,estimate,LAB-ECON,,
+Per GW - Revenues,Unit economics,"Frontier lab, vertically integrated",2030,21,US$bn,estimate,LAB-ECON,,
+Per GW - Asset intensity,Unit economics,Neocloud,2030,355,%,estimate,LAB-ECON,,
+Per GW - Asset intensity,Unit economics,"Frontier lab, vertically integrated",2030,213,%,estimate,LAB-ECON,,
+Per GW - Compute costs (including training),Unit economics,Neocloud,2030,9,US$bn,estimate,LAB-ECON,,
+Per GW - Compute costs (including training),Unit economics,Frontier lab on a neocloud,2030,13,US$bn,estimate,LAB-ECON,,
+Per GW - Compute costs (including training),Unit economics,"Frontier lab, vertically integrated",2030,9,US$bn,estimate,LAB-ECON,,
+Per GW - - of which depreciation,Unit economics,Neocloud,2030,7,US$bn,estimate,LAB-ECON,,
+Per GW - - of which depreciation,Unit economics,"Frontier lab, vertically integrated",2030,7,US$bn,estimate,LAB-ECON,,
+Per GW - - of which cash costs,Unit economics,Neocloud,2030,2,US$bn,estimate,LAB-ECON,,
+Per GW - - of which cash costs,Unit economics,Frontier lab on a neocloud,2030,13,US$bn,estimate,LAB-ECON,,
+Per GW - - of which cash costs,Unit economics,"Frontier lab, vertically integrated",2030,2,US$bn,estimate,LAB-ECON,,
+Per GW - Gross profit,Unit economics,Neocloud,2030,4,US$bn,estimate,LAB-ECON,,
+Per GW - Gross profit,Unit economics,Frontier lab on a neocloud,2030,15,US$bn,estimate,LAB-ECON,,
+Per GW - Gross profit,Unit economics,"Frontier lab, vertically integrated",2030,17,US$bn,estimate,LAB-ECON,,
+Per GW - Gross margin,Unit economics,Neocloud,2030,30,%,estimate,LAB-ECON,,
+Per GW - Gross margin,Unit economics,Frontier lab on a neocloud,2030,70,%,estimate,LAB-ECON,,
+Per GW - Gross margin,Unit economics,"Frontier lab, vertically integrated",2030,80,%,estimate,LAB-ECON,,
+Per GW - Gross profit after training cost,Unit economics,Neocloud,2030,4,US$bn,estimate,LAB-ECON,,
+Per GW - Gross profit after training cost,Unit economics,Frontier lab on a neocloud,2030,8,US$bn,estimate,LAB-ECON,,
+Per GW - Gross profit after training cost,Unit economics,"Frontier lab, vertically integrated",2030,12,US$bn,estimate,LAB-ECON,,
+Per GW - Gross margin after training,Unit economics,Neocloud,2030,30,%,estimate,LAB-ECON,,
+Per GW - Gross margin after training,Unit economics,Frontier lab on a neocloud,2030,40,%,estimate,LAB-ECON,,
+Per GW - Gross margin after training,Unit economics,"Frontier lab, vertically integrated",2030,60,%,estimate,LAB-ECON,,
+Per GW - SG&A,Unit economics,Neocloud,2030,2,US$bn,estimate,LAB-ECON,,
+Per GW - SG&A,Unit economics,Frontier lab on a neocloud,2030,2,US$bn,estimate,LAB-ECON,,
+Per GW - SG&A,Unit economics,"Frontier lab, vertically integrated",2030,2,US$bn,estimate,LAB-ECON,,
+Per GW - EBITDA,Unit economics,Neocloud,2030,8,US$bn,estimate,LAB-ECON,,
+Per GW - EBITDA,Unit economics,Frontier lab on a neocloud,2030,6,US$bn,estimate,LAB-ECON,,
+Per GW - EBITDA,Unit economics,"Frontier lab, vertically integrated",2030,17,US$bn,estimate,LAB-ECON,,
+Per GW - EBITDA margin,Unit economics,Neocloud,2030,65,%,estimate,LAB-ECON,,
+Per GW - EBITDA margin,Unit economics,Frontier lab on a neocloud,2030,30,%,estimate,LAB-ECON,,
+Per GW - EBITDA margin,Unit economics,"Frontier lab, vertically integrated",2030,80,%,estimate,LAB-ECON,,
+Per GW - Gross return on operating asset,Unit economics,Neocloud,2030,8,%,estimate,LAB-ECON,,
+Per GW - Gross return on operating asset,Unit economics,"Frontier lab, vertically integrated",2030,30,%,estimate,LAB-ECON,,
